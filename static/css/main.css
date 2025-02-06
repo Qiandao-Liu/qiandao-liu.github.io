@@ -2,7 +2,7 @@
 
 
 :root{
-    --h-title-color:#3948d2;
+    --h-title-color:#e0aedf;
 }
 
 .header {
@@ -99,7 +99,7 @@ section .main-body{
 }
 
 #avatar img {
-    height: max(130px,min(200px,calc(100vw/6)));
+    height: max(160px,min(250px,calc(100vw/4)));
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
