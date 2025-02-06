@@ -5,7 +5,7 @@
 He is currently a sophomore in Computer Science & Robotics, at Cornell Bowers CIS of Cornell University.
 
 #### Email
-ql342[at]cornell.edu
+ql342 [at] cornell [dot] edu
 
 #### Education
 B.E., Computer Science & Robotics, Cornell University, 2023—2027.

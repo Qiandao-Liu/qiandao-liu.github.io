@@ -1,2 +1,1 @@
-None\
-more news in future...
+None
