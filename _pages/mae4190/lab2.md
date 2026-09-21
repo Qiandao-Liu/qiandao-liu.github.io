@@ -426,15 +426,15 @@ Successfully transmitted 5.34 seconds of IMU data over BLE (667 samples at an ef
 
 ### Stunt 1: Drift and backhit
 
-<img src='/images/mae4190/lab2/vid_1.gif' width='600'>
+<video src='/images/mae4190/lab2/vid_1.mp4' width='600' controls autoplay loop muted playsinline></video>
 
 ### Stunt 2: Turning
 
-<img src='/images/mae4190/lab2/vid_2.gif' width='600'>
+<video src='/images/mae4190/lab2/vid_2.mp4' width='600' controls autoplay loop muted playsinline></video>
 
 ### Stunt 3: Flips
 
-<img src='/images/mae4190/lab2/vid_3.gif' width='600'>
+<video src='/images/mae4190/lab2/vid_3.mp4' width='600' controls autoplay loop muted playsinline></video>
 
 The car accelerates hard from rest and has a noticeable forward lurch at full throttle. At higher speed, turning often causes sideways drift, especially on smooth floors. It can also flip end-over-end with a quick reverse input. From these tests, the main takeaway is that the IMU has to deal with sharp transients and vibration-heavy motion, so a gyro-dominant complementary filter is important for keeping the angle estimate stable.
 
