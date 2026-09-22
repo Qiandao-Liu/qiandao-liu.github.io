@@ -19,9 +19,8 @@
   border-radius: 8px;
   background: #111317;
 }
-.course-videos--bio { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 560px; }
-.course-videos--bio figure:nth-child(-n + 2) { width: 240px; justify-self: center; }
-.course-videos--bio figure:last-child { grid-column: 1 / -1; }
+.course-videos--bio { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
+.course-videos--bio figure:last-child { grid-column: 1 / -1; width: calc(50% - 0.5em); justify-self: center; }
 .course-videos--bio video { aspect-ratio: auto; }
 .course-videos--fast { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
 .course-videos--fast video { aspect-ratio: 16 / 9; }
@@ -64,7 +63,7 @@
 .project-card__status { font-weight: 600; }
 @media (max-width: 700px) {
   .course-videos--bio, .course-videos--fast { grid-template-columns: 1fr; max-width: 400px; }
-  .course-videos--bio figure:nth-child(-n + 2) { width: min(260px, 100%); }
+  .course-videos--bio figure:last-child { grid-column: auto; width: 100%; }
   .course-videos--fast figure:last-child { grid-column: auto; width: 100%; }
   .project-story { grid-template-columns: 1fr; gap: 1.2em; }
   .project-story--reverse figure { order: 0; }
