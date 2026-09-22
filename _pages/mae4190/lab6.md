@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 6: Orientation Control"
 permalink: /mae4190/lab6/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -107,10 +107,10 @@ At 180° error I wanted near maximum turn speed. Motor PWM is mapped into [110, 
 
 With `KP = 2.5` and a 90° target, the robot reached 90° in about 1.0 s and settled to +0.1° error after overshooting to about 93.7°. The run logged 966 samples over 4.1 s, so the average loop interval was 4.3 ms, or 234 Hz.
 
-<img src='/images/mae4190/lab6/lab6_p_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_control.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab6/p_right_turn_90.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">P control to 90°.</div>
@@ -124,20 +124,20 @@ I set `KD = 0.05`. My first try used `KD = 0.4`, but at 300 °/s the D term alon
 
 I tested `target = -180°` to check wrap-around. The robot chose the left turn, crossed -180° and +180° cleanly, and stopped at 179.9° with +0.1° final error. The 982-sample run averaged 4.8 ms, or 208 Hz.
 
-<img src='/images/mae4190/lab6/lab6_pd_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pd_control.webp' width='700'>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:49%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab6/pd_right_turn_90.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab6/pd_right_turn_90.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PD at 90°.</div>
   </div>
   <div style="width:49%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab6/pd_turn_180.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab6/pd_turn_180.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PD at -180°.</div>
   </div>
 </div>
 
-<img src='/images/mae4190/lab6/lab6_p_vs_pd.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_vs_pd.webp' width='700'>
 
 ## Derivative Kick and Lowpass Filter
 
@@ -151,10 +151,10 @@ With `alpha = 1.0`, the spike passes through. With `alpha = 0.002`, the derivati
 
 I ran the same sequence twice: hold 90° for 3 s, then switch to -90°. Without the filter, motor PWM spiked to ±200 at the switch. With `alpha = 0.002`, the transition stayed smooth.
 
-<img src='/images/mae4190/lab6/lab6_derivative_kick.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_derivative_kick.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab6/derivative_kick.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">Derivative kick demo.</div>
@@ -183,10 +183,10 @@ The integral term removes steady state error from friction. If the robot stops s
 
 The 90° PID run ended at -1.0° error, compared with +0.1° for P only. The extra 1° overshoot means the integrator was still accumulating when the robot stopped, so a tighter wind-up clamp would help. The run averaged 4.7 ms, or 213 Hz, over 1015 samples.
 
-<img src='/images/mae4190/lab6/lab6_pid_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab6/pid_right_turn_90.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">PID control to 90°.</div>
@@ -233,7 +233,7 @@ if (fabsf(output) > 2.0f) {
 
 The three-way comparison shows P and PD settle similarly fast, while PID removes the residual offset from surface friction.
 
-<img src='/images/mae4190/lab6/lab6_pid_comparison.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_comparison.webp' width='700'>
 
 | Controller | KP  | KI   | KD   | Final error | Avg loop |
 |---|---|---|---|---|---|
@@ -247,8 +247,8 @@ P control was already enough for this task and even beat PD and PID in final err
 
 I also tested robustness by repeatedly kicking the robot during an in-place PID turn. Each kick created a large transient yaw disturbance, but the controller kept correcting back toward the commanded heading and still finished near the target angle. This shows the orientation PID was not only tuned for clean trials, but could also reject short external disturbances.
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab6/pid_robustness_kick_test.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">Orientation PID robustness test with repeated external kicks.</div>
@@ -260,10 +260,10 @@ To verify live setpoint updates, I started at 90°, let the robot settle, then s
 
 The same structure extends to driving by adding the orientation PID output as a signed steering correction on top of a forward or backward base motor command.
 
-<img src='/images/mae4190/lab6/lab6_pid_control_with_setpoint_change.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control_with_setpoint_change.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab6/pid_setpoint_change.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">PID with setpoint change.</div>
@@ -296,7 +296,7 @@ The setpoint is global, so a BLE write takes effect on the next cycle. No synchr
 
 Meet with my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat1.png' width='400'>
-<img src='/images/mae4190/cats/cat2.png' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

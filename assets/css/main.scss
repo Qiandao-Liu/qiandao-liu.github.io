@@ -41,3 +41,78 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* Reading layouts keep the profile on the home page only. */
+.content-page #main {
+  max-width: 1080px;
+  margin: 2.5em auto 0;
+}
+.content-page .page,
+.content-page .archive {
+  float: none;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto 3em;
+}
+.content-page .page { max-width: 880px; }
+.page__title { line-height: 1.2; }
+.page__content { line-height: 1.75; }
+.page__content img,
+.page__content video,
+.archive img,
+.archive video { max-width: 100%; height: auto; }
+.author__avatar img { height: auto; }
+.media-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 1.25em 0 2em;
+}
+.media-gallery video {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--global-code-background-color);
+}
+.archive .project-preview {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 1em;
+}
+.content-page .list__item {
+  padding: 0 0 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--global-border-color);
+}
+@media (max-width: 600px) {
+  .media-gallery { grid-template-columns: 1fr; }
+  .content-page #main { margin-top: 1.5em; }
+}
+
+/* Long equations scroll within the report on narrow screens. */
+mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.4em;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2em;
+}
+@media (max-width: 700px) {
+  .project-grid { grid-template-columns: 1fr; gap: 0; }
+}
+
+.home-page .intro a,
+.home-page .intro a:hover {
+  text-decoration: none;
+}
+
+@import "layout/research";
+@import "layout/projects";

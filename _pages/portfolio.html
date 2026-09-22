@@ -2,23 +2,21 @@
 layout: archive
 title: "Projects"
 permalink: /portfolio/
-author_profile: true
+author_profile: false
+mathjax: false
+mermaid: false
 ---
 
-{% include base_path %}
-
-{% assign research_posts = site.portfolio | where: "category", "research" | sort: "date" | reverse %}
-{% assign course_posts = site.portfolio | where: "category", "course" | sort: "date" | reverse %}
-
-{% if research_posts.size > 0 %}
+{% assign r2s2r = site.data.research | where: "id", "pub3" | first %}
 <h2>Research Projects</h2>
-{% for post in research_posts %}
-  {% include archive-single.html %}
-{% endfor %}
-{% endif %}
+<div class="project-grid">
+  {% include project-card.html project=r2s2r %}
+</div>
 
+{% assign course_posts = site.portfolio | where: "category", "course" | sort: "title" | reverse %}
 <h2>Course Projects</h2>
+<div class="project-grid">
 {% for post in course_posts %}
-  {% include archive-single.html %}
+  {% include project-card.html project=post %}
 {% endfor %}
-
+</div>

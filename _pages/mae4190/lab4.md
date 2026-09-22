@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 4: Motors and Open Loop Control"
 permalink: /mae4190/lab4/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -10,8 +10,8 @@ author_profile: true
 My robot **Mulberry** has fully completed its great hardware assembly, and the name is in honor of my cat, Mulberry.
 
 <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
-  <img src='/images/mae4190/lab4/final_assambled_pic.JPG' style='height:260px; width:auto; object-fit:contain;'>
-  <img src='/images/mae4190/cats/cat9.png' style='height:260px; width:auto; object-fit:contain;'>
+  <img loading="lazy" decoding="async" src='/images/mae4190/lab4/final_assambled_pic.webp' style='height:260px; width:auto; object-fit:contain;'>
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' style='height:260px; width:auto; object-fit:contain;'>
 </div>
 
 ## Prelab
@@ -22,23 +22,23 @@ For PWM output I needed pins that support `analogWrite`. Pins 8 and 10 are not P
 
 Each dual motor driver runs in parallel-coupled mode: both input channels tied together, both output channels tied together. This doubles the average current the chip can deliver without overheating, since both H-bridge halves share the load. Left motor uses pins 3 and 14, right motor uses pins 15 and 16.
 
-<img src='/images/mae4190/lab4/wire_connecting_figure.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/wire_connecting_figure.webp' width='700'>
 
 ### Battery Separation
 
 The motors run off an 850 mAh Li-Ion and the Artemis runs off its own 650 mAh battery. The main reason isn't just capacity but also electrical isolation. When a motor suddenly draws a huge spike of current, the battery voltage can dip momentarily. If everything shares one battery, that dip can pull the Artemis supply below its minimum operating voltage and crash it. Separate supplies prevent that. They also let each battery be sized and charged for its actual load.
 
-<img src='/images/mae4190/lab4/two_batteries_placed_inside_the_car.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/two_batteries_placed_inside_the_car.webp' width='600'>
 
 ## Power Supply and Oscilloscope
 
 I started with the motor driver (VIN) on an external bench supply set to 3.7 V, matching the Li-Ion battery voltage. I started at 100 mA current limit, which wasn't enough to drive the motor at all. I stepped it up gradually and found 300 mA was sufficient for the oscilloscope tests with the motor running freely.
 
-<img src='/images/mae4190/lab4/motor_driver_board.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/motor_driver_board.webp' width='600'>
 
 For the oscilloscope test I used a standalone sketch that cycles the motor forward and backward at a fixed PWM, with a separate version that holds a constant 30 to 256 PWM cycle for a clean waveform capture:
 
-<video width='700' controls>
+<video preload="none" width='700' controls>
   <source src='/images/mae4190/lab4/oscilloscope_video.mp4' type='video/mp4'>
 </video>
 
@@ -95,36 +95,36 @@ void loop() {
 
 The oscilloscope shows the two PWM channels are 180° out of phase. That makes sense: the two motors are mounted facing opposite directions in the chassis, so driving them both "forward" electrically means one spins clockwise and the other counterclockwise.
 
-<img src='/images/mae4190/lab4/oscilloscope_figure.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/oscilloscope_figure.webp' width='700'>
 
 
 ## Assembly
 
 I disassembled the stock car, cut the original PCB out, and started routing wires for the motor drivers. Below is the progression from initial motor wire connections through the final installation.
 
-<img src='/images/mae4190/lab4/wire_connect_to_car_motor.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/wire_connect_to_car_motor.webp' width='600'>
 
-<img src='/images/mae4190/lab4/connect_moter_to_driver_and_artemis.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/connect_moter_to_driver_and_artemis.webp' width='600'>
 
-<img src='/images/mae4190/lab4/moter_driver_board_updated_with_tape_before_inside_car.jpg' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/moter_driver_board_updated_with_tape_before_inside_car.webp' width='600'>
 
 One thing I changed partway through: instead of soldering wires directly to the Artemis pin headers, I switched to pluggable connectors. This made future rewiring much easier and kept the harness clean.
 
-<img src='/images/mae4190/lab4/artemis_updated.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/artemis_updated.webp' width='600'>
 
 I also 3D-printed crossbeams to mount the circuit boards inside the chassis. The beams hold the boards elevated off the plastic floor and also help resist the chassis from twisting under acceleration. Final cable arrangement before closing everything up:
 
-<img src='/images/mae4190/lab4/advaced_car_cable_arrange.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/advaced_car_cable_arrange.webp' width='600'>
 
-<img src='/images/mae4190/lab4/wire_arranged_inside_the_car.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/wire_arranged_inside_the_car.webp' width='600'>
 
-<img src='/images/mae4190/lab4/final_assambled_pic.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/final_assambled_pic.webp' width='600'>
 
-<img src='/images/mae4190/lab4/all_parts_distribution_diagram.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/all_parts_distribution_diagram.webp' width='700'>
 
 With the motor driver switched from bench supply to the 850 mAh battery, both wheels spin correctly in both directions:
 
-<video width='700' controls>
+<video preload="none" width='700' controls>
   <source src='/images/mae4190/lab4/car_moved_video.mp4' type='video/mp4'>
 </video>
 
@@ -136,7 +136,7 @@ For forward motion, the robot consistently moved at PWM 40, displacing about 2.0
 
 For on-axis turns, the robot reliably completed a detectable rotation at PWM 140 (4.6° in 1 second). The 135–139 range was inconsistent, so 140 is the practical minimum.
 
-<img src='/images/mae4190/lab4/lab4_pwm_lower_limit.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab4/lab4_pwm_lower_limit.webp' width='700'>
 
 The higher threshold for turns makes sense: in a turn one wheel has to overcome static friction while being driven against the other wheel's contact patch. That takes more torque than forward motion where both wheels cooperate.
 
@@ -172,13 +172,13 @@ I swept through calibration factors over BLE and measured drift direction for ea
 
 A factor of 0.95 slows the right motor by 5%, which compensates for the imbalance. Before calibration:
 
-<video width='700' controls>
+<video preload="none" width='700' controls>
   <source src='/images/mae4190/lab4/calibration_not_straight_but_left.mp4' type='video/mp4'>
 </video>
 
 After setting `motorCalFactor = 0.95`, the robot tracked straight for over 2 m:
 
-<video width='700' controls>
+<video preload="none" width='700' controls>
   <source src='/images/mae4190/lab4/calibration_straight.mp4' type='video/mp4'>
 </video>
 
@@ -238,7 +238,7 @@ time.sleep(2.5)
 
 The right turn landed at −90.5° and the left turn at +90.2°, both very close to target. The car ran the full sequence untethered after the single Python trigger.
 
-<video width='700' controls>
+<video preload="none" width='700' controls>
   <source src='/images/mae4190/lab4/open_loop_control.mp4' type='video/mp4'>
 </video>
 
@@ -246,7 +246,7 @@ The right turn landed at −90.5° and the left turn at +90.2°, both very close
 
 Meet my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat3.png' width='400'>
-<img src='/images/mae4190/cats/cat7.png' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat7.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

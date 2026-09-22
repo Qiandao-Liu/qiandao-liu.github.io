@@ -1,0 +1,69 @@
+.course-project { max-width: 960px; margin: 0 auto 3em; line-height: 1.7; }
+.course-project h1 { margin: 0 0 1em; }
+.course-project h2 { font-size: 1.3em; margin: 0 0 0.65em; }
+.course-project > h2 { margin-top: 2em; }
+.course-project a { text-decoration: none; }
+.course-videos {
+  display: grid;
+  gap: 1em;
+  margin: 0 auto 1.8em;
+  align-items: start;
+}
+.course-videos figure { display: block; width: auto; margin: 0; }
+.course-videos video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #111317;
+}
+.course-videos--bio { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
+.course-videos--bio figure:last-child { grid-column: 1 / -1; }
+.course-videos--bio video { aspect-ratio: auto; }
+.course-videos--fast { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; }
+.course-videos--fast video { aspect-ratio: 16 / 9; }
+.course-videos--fast figure:last-child { grid-column: 1 / -1; width: calc(50% - 0.5em); justify-self: center; }
+.course-project figcaption, .project-story figcaption {
+  margin-top: 0.5em;
+  font-size: 0.75em;
+  line-height: 1.5;
+  text-align: center;
+}
+.course-project blockquote { font-size: 1.05em; margin: 1.5em 0 2em; }
+.project-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2em;
+  align-items: center;
+  margin: 2.5em 0;
+}
+.project-story figure { display: block; width: auto; margin: 0; }
+.project-story img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.project-story--reverse figure { order: 2; }
+.project-story p { margin: 0 0 1em; }
+.project-story h2 { margin-top: 0; }
+.project-card { min-width: 0; padding-bottom: 1.5em; border-bottom: 1px solid var(--global-border-color); }
+.project-card__media { display: flex; align-items: center; justify-content: center; min-height: 280px; margin-bottom: 1em; }
+.archive .project-card__media video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 380px);
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.project-card h3 { margin: 0 0 0.5em; font-size: 1.1em; line-height: 1.4; }
+.project-card a, .project-card a:hover { text-decoration: none; }
+.project-card p { margin: 0.4em 0; font-size: 0.9em; line-height: 1.65; }
+.project-card__status { font-weight: 600; }
+@media (max-width: 700px) {
+  .course-videos--bio, .course-videos--fast { grid-template-columns: 1fr; max-width: 400px; }
+  .course-videos--fast figure:last-child { grid-column: auto; width: 100%; }
+  .project-story { grid-template-columns: 1fr; gap: 1.2em; }
+  .project-story--reverse figure { order: 0; }
+  .project-card__media { min-height: 0; }
+  .project-card { margin-bottom: 1.5em; }
+}

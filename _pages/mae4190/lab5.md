@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 5: Linear PID and Linear Interpolation"
 permalink: /mae4190/lab5/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -100,10 +100,10 @@ The firmware maps PID output to PWM with `PWM = 40 + (|output| / 200) * 160`. To
 
 At 40 PWM the robot coasted and usually stopped 50 to 100 mm past the target. At 80 PWM it needed reverse braking and usually stopped cleanly. At 120 PWM, P alone could not brake fast enough and hit the wall every run. The logged P run ended at -104 mm error.
 
-<img src='/images/mae4190/lab5/lab5_p_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_control.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab5/p_control.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">P control.</div>
@@ -111,20 +111,20 @@ At 40 PWM the robot coasted and usually stopped 50 to 100 mm past the target. At
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/p_control_40pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/p_control_40pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">P control at 40 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/p_control_80pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/p_control_80pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">P control at 80 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/p_control_120pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/p_control_120pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">P control at 120 PWM.</div>
   </div>
 </div>
 
-<img src='/images/mae4190/lab5/lab5_p_pwm_comparison.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_pwm_comparison.webp' width='700'>
 
 ## PD Control
 
@@ -132,10 +132,10 @@ Adding `KD = 0.004` fixed the high speed crashes. The derivative term sees the f
 
 At 120 PWM, PD braked smoothly and stopped within 21 mm of the setpoint. The motor plot shows active reverse braking that P could not produce. PD was already close to PID at all three speeds, so D did most of the useful extra work.
 
-<img src='/images/mae4190/lab5/lab5_pd_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_control.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab5/pd_control.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">PD control.</div>
@@ -143,20 +143,20 @@ At 120 PWM, PD braked smoothly and stopped within 21 mm of the setpoint. The mot
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pd_control_40pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pd_control_40pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PD control at 40 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pd_control_80pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pd_control_80pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PD control at 80 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pd_control_120pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pd_control_120pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PD control at 120 PWM.</div>
   </div>
 </div>
 
-<img src='/images/mae4190/lab5/lab5_pd_pwm_comparison.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_pwm_comparison.webp' width='700'>
 
 ## PID Control
 
@@ -198,17 +198,17 @@ if (fabsf(output) > 2.0f) {
 
 For robustness, I pushed the robot away from the wall mid-run. PID corrected and returned to 304 mm.
 
-<img src='/images/mae4190/lab5/lab5_pid_control.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_control.webp' width='700'>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab5/pid_contorl.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">PID control.</div>
 </div>
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab5/pid_robust_control.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">PID robustness test.</div>
@@ -216,20 +216,20 @@ For robustness, I pushed the robot away from the wall mid-run. PID corrected and
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_40pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_40pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PID control at 40 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_80pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_80pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PID control at 80 PWM.</div>
   </div>
   <div style="width:32%; text-align:center;">
-    <video width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_120pwm.mp4' type='video/mp4'></video>
+    <video preload="none" width='100%' controls><source src='/images/mae4190/lab5/pid_contorl_120pwm.mp4' type='video/mp4'></video>
     <div style="font-size:0.9em;">PID control at 120 PWM.</div>
   </div>
 </div>
 
-<img src='/images/mae4190/lab5/lab5_pid_pwm_comparison.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_pwm_comparison.webp' width='700'>
 
 | Controller | KP | KI | KD | Final error |
 |---|---|---|---|---|
@@ -241,7 +241,7 @@ For robustness, I pushed the robot away from the wall mid-run. PID corrected and
 
 The TOF sensor gives real data at 10 Hz, but the PID loop runs at 112 Hz. Without extrapolation, the derivative sees stale error for about 90% of the loop. I fixed that by estimating the current distance from the last two real TOF readings.
 
-<img src='/images/mae4190/lab5/extrapolation.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab5/extrapolation.webp' width='700'>
 
 Each new TOF sample updates the slope in mm/ms. Between samples, Artemis projects forward with `tof_current = tof_last_val + tof_slope * dt_since`. I also logged an `extrap` flag so the plots can separate real and estimated points. This gives an effective 11.2x loop speed-up, so the derivative gets a fresh estimate every iteration instead of waiting for the next sensor sample.
 
@@ -276,7 +276,7 @@ if (tofSensor1.checkForDataReady()) {
 
 Meet with my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat10.png' width='400'>
-<img src='/images/mae4190/cats/cat15.png' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat15.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

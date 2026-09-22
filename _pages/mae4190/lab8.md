@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 8: Stunts!"
 permalink: /mae4190/lab8/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -15,8 +15,8 @@ I chose the drift stunt. The robot starts a few meters from the wall, drives for
 
 My first version reused the Lab 7 KF wall approach controller too literally. The robot estimated distance well, but then it tried to stop at one exact wall distance before turning. That made the car hunt back and forth near the wall, which broke the stunt rhythm and wasted time.
 
-<div style="width:700px;">
-  <video width="700" controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width="700" controls>
     <source src="/images/mae4190/lab8/IMG_3114.mp4" type="video/mp4">
   </video>
   <div style="text-align:center; font-size:0.95em;">Initial baseline. The robot keeps adjusting distance before the turn instead of drifting through the stunt.</div>
@@ -172,19 +172,19 @@ The four videos document the full iteration path. The first video is the old bas
 
 The first run with the new direct-turn logic fixed the old forward and backward adjustment, but the tire and floor friction was high enough that the robot hesitated during the last part of the turn. The motors still forced the chassis to the commanded heading, so the turn controller was correct, but the turn was not smooth and the run still took `7.19 s`.
 
-<div style="width:700px;">
-  <video width="700" controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width="700" controls>
     <source src="/images/mae4190/lab8/IMG_3117.mp4" type="video/mp4">
   </video>
   <div style="text-align:center; font-size:0.95em;">Direct-turn logic without the tire modification. The robot turns the right amount, but the high friction causes a visible pause.</div>
 </div>
 
-<img src="/images/mae4190/lab8/lab8_drift.png" width="700">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the first direct-turn run.</div>
 
 To reduce that sticking effect, I wrapped electrical tape around the outer surface of the tires. That lowered the tire-floor friction enough to make the turn much smoother.
 
-<img src="/images/mae4190/lab8/IMG_3125.JPG" width="700">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab8/IMG_3125.webp" width="700">
 
 <div style="text-align:center; font-size:0.95em;">Electrical tape added around the tire surface to reduce turning friction.</div>
 
@@ -194,28 +194,28 @@ The tradeoff is that the lower friction causes some chassis drift during braking
 
 <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:49%; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src="/images/mae4190/lab8/IMG_3122.mp4" type="video/mp4">
     </video>
     <div style="font-size:0.95em;">Final run after the tire change. The whole stunt is continuous and much smoother.</div>
   </div>
   <div style="width:49%; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src="/images/mae4190/lab8/IMG_3126.mp4" type="video/mp4">
     </video>
     <div style="font-size:0.95em;">Another final run. This one is the fastest clip and still returns cleanly.</div>
   </div>
 </div>
 
-<img src="/images/mae4190/lab8/lab8_drift_1.png" width="700">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_1.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the first taped-tire run.</div>
 
-<img src="/images/mae4190/lab8/lab8_drift_2.png" width="700">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_2.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the fastest taped-tire run.</div>
 
 Meet my cat Mulberry! 🐱
 
-<img src="/images/mae4190/cats/cat19.png" width="400">
-<img src="/images/mae4190/cats/cat20.png" width="400">
+<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat19.webp" width="400">
+<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat20.webp" width="400">
 
 [Back to MAE 4190](/mae4190/)

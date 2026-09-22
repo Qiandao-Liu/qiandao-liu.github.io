@@ -1,0 +1,9 @@
+{% assign project = include.project %}
+<article class="project-card">
+  <div class="project-card__media">
+    <video src="{{ project.preview | relative_url }}" poster="{{ project.poster | relative_url }}" width="{{ project.video_width }}" height="{{ project.video_height }}" muted loop playsinline preload="none"{% if project.playback_rate %} data-playback-rate="{{ project.playback_rate }}"{% endif %} aria-label="{{ project.title | escape }} video preview"></video>
+  </div>
+  <h3><a href="{% if project.url contains '://' %}{{ project.url }}{% else %}{{ project.url | relative_url }}{% endif %}">{{ project.title }}</a></h3>
+  {% if project.status %}<p class="project-card__status">{{ project.status }}</p>{% endif %}
+  {% if project.excerpt %}<p>{{ project.excerpt | strip_html }}</p>{% endif %}
+</article>

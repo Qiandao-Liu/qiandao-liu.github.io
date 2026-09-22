@@ -1,0 +1,28 @@
+<div class="research-list">
+  {% assign research_entries = site.data.research | where: "section", include.section %}
+  {% for publication in research_entries %}
+  <article class="research-entry" id="{{ publication.id }}">
+    <div class="research-entry__media">
+      <video muted loop playsinline preload="none" width="{{ publication.video_width | default: 640 }}" height="{{ publication.video_height | default: 360 }}"{% if publication.playback_rate %} data-playback-rate="{{ publication.playback_rate }}"{% endif %}
+        poster="{{ publication.poster | relative_url }}"
+        aria-label="Video preview: {{ publication.title | escape }}">
+        <source src="{{ publication.preview | relative_url }}" type="video/mp4">
+        Your browser does not support embedded video.
+      </video>
+      {% if publication.speed %}<span class="research-entry__speed">{{ publication.speed }}</span>{% endif %}
+    </div>
+    <div class="research-entry__body">
+      <h3 class="research-entry__title">{% if publication.title_url %}<a href="{% if publication.title_url contains '://' %}{{ publication.title_url }}{% else %}{{ publication.title_url | relative_url }}{% endif %}">{{ publication.title }}</a>{% else %}{{ publication.title }}{% endif %}</h3>
+      {% if publication.authors %}<div class="research-entry__authors">{{ publication.authors | markdownify }}</div>{% endif %}
+      {% if publication.author_note %}<p class="research-entry__author-note">{{ publication.author_note }}</p>{% endif %}
+      {% if publication.attribution %}<div class="research-entry__authors">{{ publication.attribution | markdownify }}</div>{% endif %}
+      <p class="research-entry__venue">{{ publication.status }}{% if publication.highlight %} <strong class="research-entry__highlight">{{ publication.highlight }}</strong>{% endif %}{% if publication.type %}<span class="research-entry__type"> · {{ publication.type }}</span>{% endif %}</p>
+      {% if publication.links.size > 0 %}
+      <nav class="research-links" aria-label="Resources for {{ publication.title | escape }}">
+        {% for link in publication.links %}<a href="{% if link.url contains '://' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}">{{ link.label }}</a>{% endfor %}
+      </nav>
+      {% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

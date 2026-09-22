@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 11: Localization (real)"
 permalink: /mae4190/lab11/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -15,11 +15,11 @@ The goal of this lab was to run the Bayes filter on the real robot. On hardware 
 
 I first ran the provided simulation notebook to verify that the reference Bayes filter behavior was still correct before moving to BLE and real sensors.
 
-<img src='/images/mae4190/lab11/sim.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab11/sim.webp' width='700'>
 
 The final plot looked normal, so later failures on the real robot were much more likely to come from sensing and map ambiguity than from the filter math itself. I also ran a longer simulated trajectory and confirmed that the Bayes-filter estimate kept following ground truth better than raw odometry.
 
-<img src='/images/mae4190/lab11/traj.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab11/traj.webp' width='700'>
 
 ## Observation loop on the real robot
 
@@ -307,13 +307,13 @@ This point localized very nicely even with the uniform-prior baseline. The final
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:320px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab11/-3_-2.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.95em;">Run at (-3,-2,0).</div>
   </div>
   <div style="flex:1; min-width:320px; text-align:center;">
-    <img src='/images/mae4190/lab11/-3_-2.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab11/-3_-2.webp' width='100%'>
     <div style="font-size:0.95em;">Final belief for (-3,-2,0).</div>
   </div>
 </div>
@@ -324,13 +324,13 @@ This point also localized cleanly. The final belief was again in the correct cel
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:320px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab11/0_3.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.95em;">Run at (0,3,0).</div>
   </div>
   <div style="flex:1; min-width:320px; text-align:center;">
-    <img src='/images/mae4190/lab11/0_3.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab11/0_3.webp' width='100%'>
     <div style="font-size:0.95em;">Final belief for (0,3,0).</div>
   </div>
 </div>
@@ -341,13 +341,13 @@ This was the worst required point in the baseline. Under a uniform prior it coul
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:320px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab11/5_-3.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.95em;">Run at (5,-3,0) after adding the weak prior.</div>
   </div>
   <div style="flex:1; min-width:320px; text-align:center;">
-    <img src='/images/mae4190/lab11/5_-3.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab11/5_-3.webp' width='100%'>
     <div style="font-size:0.95em;">Final belief for (5,-3,0).</div>
   </div>
 </div>
@@ -358,13 +358,13 @@ This point was better than `(5,-3)` in the baseline, but it could still alias oc
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:320px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab11/5_3.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.95em;">Run at (5,3,0).</div>
   </div>
   <div style="flex:1; min-width:320px; text-align:center;">
-    <img src='/images/mae4190/lab11/5_3.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab11/5_3.webp' width='100%'>
     <div style="font-size:0.95em;">Final belief for (5,3,0).</div>
   </div>
 </div>
@@ -373,13 +373,13 @@ I also tested `(0,0)` as an extra validation point. It was the easiest one: the 
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:320px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab11/0_0.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.95em;">Extra validation run at (0,0,0).</div>
   </div>
   <div style="flex:1; min-width:320px; text-align:center;">
-    <img src='/images/mae4190/lab11/0_0.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab11/0_0.webp' width='100%'>
     <div style="font-size:0.95em;">Final belief for (0,0,0).</div>
   </div>
 </div>
@@ -392,6 +392,6 @@ The `APPROX_POSE` method fixed the wrong-cell jumps without pretending odometry 
 
 Meet my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat5.png' width='300'> <img src='/images/mae4190/cats/cat12.png' width='300'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat5.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat12.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)

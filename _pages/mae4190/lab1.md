@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 1: Artemis and Bluetooth"
 permalink: /mae4190/lab1/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -17,9 +17,9 @@ The Artemis board MAC address came from the serial monitor:
 Artemis MAC: C0:81:31:25:23:64
 ```
 
-<img src='/images/mae4190/lab1/lab1_address_printing.png' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_address_printing.webp' width='600'>
 
-<img src='/images/mae4190/lab1/lab1_board.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_board.JPG' width='600'>
 
 ## Lab 1A discussion
 
@@ -83,7 +83,7 @@ print(f"Received: {s}")
 </div>
 </details>
 
-<img src='/images/mae4190/lab1/lab1_task1.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task1.webp' width='700'>
 
 ## Float parsing
 
@@ -134,7 +134,7 @@ ble.send_command(CMD.SEND_THREE_FLOATS, "1.5|2.7|3.14")
 </div>
 </details>
 
-<img src='/images/mae4190/lab1/lab1_task2.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task2.webp' width='700'>
 
 ## Millisecond timestamp
 
@@ -173,7 +173,7 @@ print(f"Received: {s}")
 </div>
 </details>
 
-<img src='/images/mae4190/lab1/lab1_task3.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task3.webp' width='700'>
 
 ## Notifications and transfer rate
 
@@ -231,8 +231,8 @@ while time.time() - start_time < 5:
 
 In 5 seconds I sent 33 requests and received 32 replies. That gives an effective rate of about 6.79 messages per second, or about 147 ms per message. This is much slower than the 100 ms request interval. The gap comes from BLE overhead, notification latency, and the fact that request and response both take time. This result made it clear that fast sensors should not stream one sample at a time over BLE.
 
-<img src='/images/mae4190/lab1/lab1_task4.png' width='700'>
-<img src='/images/mae4190/lab1/lab1_task5.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task4.webp' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task5.webp' width='700'>
 
 ## Buffered timestamp collection
 
@@ -371,7 +371,7 @@ time.sleep(5)
 
 I collected 344 timestamps in about 3 seconds. Using the first and last stored timestamps, the estimated sampling rate was about 115 samples per second. That is roughly 17 times faster than the real time request and reply method. The exact rate is a little above 100 Hz because the reported value comes from actual timestamps rather than the nominal 10 ms interval.
 
-<img src='/images/mae4190/lab1/lab1_task6.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task6.webp' width='700'>
 
 ## Buffered temperature data
 
@@ -437,7 +437,7 @@ ble.send_command(CMD.GET_TEMP_READINGS, "")
 
 I received 344 paired readings, which matched the number of stored timestamp samples. The temperature stayed around 33 C, which is reasonable for the onboard sensor sitting on a powered board at room conditions. The important result here was not the absolute temperature value. It was that the parser correctly split every combined message into synchronized time and temperature data.
 
-<img src='/images/mae4190/lab1/lab1_task7.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab1/lab1_task7.webp' width='700'>
 
 ## Discussion
 
@@ -449,6 +449,6 @@ Memory use is the main tradeoff of buffering. With `1000` timestamps and `1000` 
 
 Meet my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat1.png' width='300'> <img src='/images/mae4190/cats/cat2.png' width='300'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)

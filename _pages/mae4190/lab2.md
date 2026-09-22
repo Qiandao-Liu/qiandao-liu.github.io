@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 2: IMU"
 permalink: /mae4190/lab2/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -13,11 +13,11 @@ author_profile: true
 
 The ICM-20948 9-DOF IMU is connected to Artemis Nano via the QWIIC connector. QWIIC interface supplies 3.3V, GND, SDA and SCL.
 
-<img src='/images/mae4190/lab2/imu_connection.jpg' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/imu_connection.webp' width='600'>
 
 After running the `Example1_Basics` sketch, the Serial Monitor confirmed successful initialization, and both accelerometer and gyroscope readings updated in real time:
 
-<img src='/images/mae4190/lab2/pass_test_code.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/pass_test_code.webp' width='700'>
 
 On startup, the LED blinks three times to show the board is running.
 
@@ -46,9 +46,9 @@ for (int i = 0; i < 3; i++) {
 
 When rotating or flipping the board, the accelerometer X/Y/Z readings change to reflect the component of gravity projected onto each axis. At rest flat on a table, `az ≈ 1000 mg` while `ax` and `ay` approach 0. Rotating 90° about the X-axis causes `ay` to swing from 0 to ±1000 mg. The gyroscope outputs angular velocity (dps) on each axis. Rapid accelerations produce large transient spikes in the accelerometer, while slow steady tilts show up clearly in the gyroscope as sustained non-zero readings.
 
-<img src='/images/mae4190/lab2/accel_raw.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/accel_raw.png' width='700'>
 
-<img src='/images/mae4190/lab2/gyro_raw.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/gyro_raw.webp' width='700'>
 
 
 ## Accelerometer
@@ -128,11 +128,11 @@ roll_scale, roll_offset   = two_point_calibration(-85.51, 86.09)
 
 FFT analysis was performed on stationary accelerometer pitch data (sampling rate ≈ 342.7 Hz, Nyquist ≈ 171.4 Hz):
 
-<img src='/images/mae4190/lab2/fft_stationary.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/fft_stationary.webp' width='700'>
 
 In the stationary case, noise energy is concentrated below 10 Hz with no strong peaks, the sensor is well-behaved at rest. To induce vibration noise, the table was tapped gently during a second recording:
 
-<img src='/images/mae4190/lab2/fft_vibration.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/fft_vibration.webp' width='700'>
 
 Tapping the table introduces broadband noise spanning multiple frequency bands. The useful orientation signal (slow tilts) lives below ~5 Hz, while the vibration energy appears primarily above 10 Hz. This motivates a low-pass filter with a cutoff in the 5–10 Hz range.
 
@@ -238,7 +238,7 @@ yaw_g   += gz * dt;
 
 ### Comparison with Accelerometer
 
-<img src='/images/mae4190/lab2/filter_comparison.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/filter_comparison.webp' width='700'>
 
 From the comparison plot, the tradeoff is pretty clear. Gyro integration reacts quickly and captures fast motion well, but it drifts over time because bias gets accumulated. The raw accelerometer does not drift, but it gets noisy when the table is tapped or when motion is abrupt, and it cannot provide yaw. The low-pass filtered accelerometer is cleaner, but that filtering also introduces lag. Sampling rate matters a lot for the gyro result: when the rate is reduced, `dt` gets larger and integration error grows faster. At about 343 Hz, the gyro angle is reliable for short windows (around 10 seconds). At 50 Hz, the error for a fast turn (like 180°/s) is much larger, roughly seven times worse than at 343 Hz.
 
@@ -265,13 +265,13 @@ roll_comp  = (1.0 - alpha_comp) * (roll_comp  + gy * dt) + alpha_comp * roll_a;
 
 Drift test — IMU held stationary for ~10 seconds:
 
-<img src='/images/mae4190/lab2/drift_test.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/drift_test.webp' width='700'>
 
 The gyro integral drifts continuously; the complementary filter stays within ~1° of the true angle because the 5% accelerometer weighting slowly corrects any accumulated bias.
 
 Vibration rejection test — table tapped while recording:
 
-<img src='/images/mae4190/lab2/vibration_test.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/vibration_test.webp' width='700'>
 
 The raw accelerometer spikes by several degrees during each tap. The complementary filter's dominant gyroscope weight (95%) suppresses these transients, maintaining a smooth output.
 
@@ -419,22 +419,22 @@ def collect_imu_data(duration_s=5):
 
 Successfully transmitted 5.34 seconds of IMU data over BLE (667 samples at an effective 124.8 Hz):
 
-<img src='/images/mae4190/lab2/5sec_data.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab2/5sec_data.webp' width='700'>
 
 
 ## Record a Stunt
 
 ### Stunt 1: Drift and backhit
 
-<video src='/images/mae4190/lab2/vid_1.mp4' width='600' controls autoplay loop muted playsinline></video>
+<video preload="none" src='/images/mae4190/lab2/vid_1.mp4' width='600' controls playsinline></video>
 
 ### Stunt 2: Turning
 
-<video src='/images/mae4190/lab2/vid_2.mp4' width='600' controls autoplay loop muted playsinline></video>
+<video preload="none" src='/images/mae4190/lab2/vid_2.mp4' width='600' controls playsinline></video>
 
 ### Stunt 3: Flips
 
-<video src='/images/mae4190/lab2/vid_3.mp4' width='600' controls autoplay loop muted playsinline></video>
+<video preload="none" src='/images/mae4190/lab2/vid_3.mp4' width='600' controls playsinline></video>
 
 The car accelerates hard from rest and has a noticeable forward lurch at full throttle. At higher speed, turning often causes sideways drift, especially on smooth floors. It can also flip end-over-end with a quick reverse input. From these tests, the main takeaway is that the IMU has to deal with sharp transients and vibration-heavy motion, so a gyro-dominant complementary filter is important for keeping the angle estimate stable.
 
@@ -450,6 +450,6 @@ The biggest practical lesson was that communication limits were more restrictive
 ---
 Meet with my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat3.png' width='300'> <img src='/images/mae4190/cats/cat4.png' width='300'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat4.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)

@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 10: Localization (sim)"
 permalink: /mae4190/lab10/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -17,12 +17,12 @@ Before working on localization, I used the simulator notebook to verify that the
 
 My first square run was not clean. The path drifted upward and the odometry trace spread far outside the small square region. That told me the basic plotting pipeline was working, but the command timing was still rough.
 
-<img src="/images/mae4190/lab10/square_1.png" width="900">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab10/square_1.webp" width="900">
 <div style="text-align:center; font-size:0.95em;">Initial square test. The green path stayed near the command square, while the red odometry trace drifted far from it.</div>
 
 After tuning the forward and turn durations, the open loop square became much tighter. From the plot, the final square side length was about `0.43 m`, and the four corners stayed visually consistent. That gave me enough confidence to move on to Bayes filtering.
 
-<img src="/images/mae4190/lab10/square_2.png" width="900">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab10/square_2.webp" width="900">
 <div style="text-align:center; font-size:0.95em;">Tuned square test. The commanded loop stayed compact and repeatable.</div>
 
 ## Bayes Filter Design
@@ -135,11 +135,11 @@ The initial update step already concentrated the belief strongly. Starting from 
 
 <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:48%; text-align:center;">
-    <img src="/images/mae4190/lab10/grid_localization_before.png" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mae4190/lab10/grid_localization_before.webp" width="100%">
     <div style="font-size:0.95em;">Initial grid belief before localization. The prior is uniform over the full map.</div>
   </div>
   <div style="width:48%; text-align:center;">
-    <img src="/images/mae4190/lab10/grid_localization_after.png" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mae4190/lab10/grid_localization_after.webp" width="100%">
     <div style="font-size:0.95em;">Belief after localization. The highest probability region concentrates near the robot trajectory instead of staying spread across the grid.</div>
   </div>
 </div>
@@ -154,10 +154,10 @@ The next few steps showed the same pattern. The prior belief spread or drifted t
 
 The full trajectory plot below shows the same story visually. Red is odometry, green is ground truth, and blue is the Bayes filter estimate. The blue trajectory stayed much closer to the green one than the red trajectory did, especially after the robot moved away from the start and odometry accumulated large drift.
 
-<img src="/images/mae4190/lab10/bayes.png" width="800">
+<img loading="lazy" decoding="async" src="/images/mae4190/lab10/bayes.webp" width="800">
 <div style="text-align:center; font-size:0.95em;">Final localization result. Red is odometry, green is ground truth, and blue is the Bayes filter estimate.</div>
 
-<video width="800" controls>
+<video preload="none" width="800" controls>
   <source src="/images/mae4190/lab10/bayes.mp4" type="video/mp4">
 </video>
 <div style="text-align:center; font-size:0.95em;">Video of the Bayes filter trajectory. The estimate stays close to the ground truth while odometry drifts away.</div>
@@ -172,10 +172,10 @@ The result is still not perfect. The estimate snaps to cell centers, so some qua
 
 <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:48%; text-align:center;">
-    <img src="/images/mae4190/cats/cat3.png" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mae4190/cats/cat3.webp" width="100%">
   </div>
   <div style="width:48%; text-align:center;">
-    <img src="/images/mae4190/cats/cat8.png" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mae4190/cats/cat8.webp" width="100%">
   </div>
 </div>
 

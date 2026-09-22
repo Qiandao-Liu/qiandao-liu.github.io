@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 12: Planning and Execution"
 permalink: /mae4190/lab12/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -11,7 +11,7 @@ author_profile: true
 
 The robot also performed at ECE Robotics Day before lab 12 was due, doing the same drift stunt from Lab 8.
 
-<video width="700" controls>
+<video preload="none" width="700" controls>
   <source src='/images/mae4190/lab12/ECE_Robotics_Day_drift_show.mp4' type='video/mp4'>
 </video>
 
@@ -159,11 +159,11 @@ def run_checkpoint_localization(approx_pose, note=''):
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img src='/images/mae4190/lab12/first_localization_pos.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/first_localization_pos.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Initial localization at (-4,-3). Prob = 0.9986, estimated heading -10°.</div>
   </div>
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img src='/images/mae4190/lab12/second_localization_pos.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/second_localization_pos.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Second localization checkpoint after segment 3. Dropped in final run since wall PID corrects faster.</div>
   </div>
 </div>
@@ -257,13 +257,13 @@ Before testing on hardware I ran the full strategy in simulation to verify the l
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:300px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab12/validation_in_sim.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.9em; color:#555;">Simulation run through all 8 segments.</div>
   </div>
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img src='/images/mae4190/lab12/validation_in_sim_traj.png' width='100%'>
+    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/validation_in_sim_traj.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Simulated GT path vs desired waypoints. Bayes filter localization at segment 3 checkpoint converged at probability 1.0.</div>
   </div>
 </div>
@@ -274,13 +274,13 @@ The first wall-following attempts failed because the right-sensor P gain was too
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:280px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab12/follow_wall_not_good.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.9em; color:#555;">Attempt 1: robot clips the wall.</div>
   </div>
   <div style="flex:1; min-width:280px; text-align:center;">
-    <video width="100%" controls>
+    <video preload="none" width="100%" controls>
       <source src='/images/mae4190/lab12/follow_wall_not_good_2.mp4' type='video/mp4'>
     </video>
     <div style="font-size:0.9em; color:#555;">Attempt 2: wrong wall follow contorl lead robot early into final waypoint, then hit the wall.</div>
@@ -343,33 +343,33 @@ The final run executes all 8 segments in sequence. The open-loop phase brings th
 
 Waypoints 1 through 3 are hit approximately. The offboard laptop sends heading and duration to the Artemis and then waits; IMU drift and wheel slip accumulate over those diagonal and lateral segments, but the total error stays within roughly one grid cell since the distances are short. Waypoints 4 through 9 are much more accurate because the onboard wall-follow controller corrects position continuously throughout each segment without any round-trip to the laptop. The final position at (0,0) landed within about half a foot of the target. Total run time from start to finish was 1 minute 11 seconds.
 
-<video width="700" controls>
+<video preload="none" width="700" controls>
   <source src='/images/mae4190/lab12/final.mp4' type='video/mp4'>
 </video>
 
 Meet my cat Mulberry! 🐱
 
 <div>
-  <img src='/images/mae4190/cats/cat1.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat2.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat3.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat4.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat5.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat6.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat7.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat8.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat9.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat10.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat11.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat12.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat13.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat14.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat15.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat16.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat17.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat18.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat19.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img src='/images/mae4190/cats/cat20.png' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat4.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat5.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat6.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat7.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat8.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat11.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat12.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat13.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat14.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat15.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat16.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat17.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat18.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat19.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat20.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
 </div>
 
 [Back to MAE 4190](/mae4190/)

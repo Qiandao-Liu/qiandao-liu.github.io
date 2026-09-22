@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 3: Time of Flight Sensors"
 permalink: /mae4190/lab3/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -34,9 +34,9 @@ Scenarios where the robot will miss obstacles:
 
 ### Wiring Plan
 
-<img src='/images/mae4190/lab3/lab3_fig.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/lab3_fig.webp' width='700'>
 
-<img src='/images/mae4190/lab3/lab3_fig2.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/lab3_fig2.webp' width='700'>
 
 Long QWIIC cables go to the ToF sensors so they can reach their mounting spots on the car. The IMU uses a shorter cable since it stays close to the Artemis. XSHUT wires are soldered permanently to each sensor and connect via female-to-female jumper wires to A0/A1 on the Artemis.
 
@@ -44,7 +44,7 @@ Long QWIIC cables go to the ToF sensors so they can reach their mounting spots o
 
 First step was to solder the JST cable to the 650 mAh battery one wire at a time, because cutting both at once shorts the terminals. Used heat shrink to insulate each joint.
 
-<img src='/images/mae4190/lab3/battery.jpg' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/battery.webp' width='600'>
 
 The battery wire polarity doesn't necessarily match the color convention on the Artemis side. I got it wrong on the first try and the board started smoking. Pulled the battery fast, checked polarity with a multimeter, re-soldered correctly, and it was fine.
 
@@ -52,17 +52,17 @@ The battery wire polarity doesn't necessarily match the color convention on the 
 
 Installed the SparkFun VL53L1X 4m library, cut a long QWIIC cable, and soldered it to sensor 1. Blue = SDA, yellow = SCL per the datasheet.
 
-<img src='/images/mae4190/lab3/tof1.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof1.webp' width='600'>
 
 Connected it to the QWIIC breakout board on the Artemis to verify the solder joints:
 
-<img src='/images/mae4190/lab3/onlytwo.JPG' width='600'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/onlytwo.webp' width='600'>
 
 ## I2C Address Scan
 
 Ran the I2C scanner example. The sensor shows up at 0x29, not 0x52. This is just a convention difference: the Arduino Wire library drops the R/W bit from the 8-bit address, so 0x52 becomes 0x29. The address is correct.
 
-<img src='/images/mae4190/lab3/passone.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/passone.webp' width='700'>
 
 ## Two ToF Sensors Simultaneously
 
@@ -113,7 +113,7 @@ void init_tof_sensors() {
 
 After this, sensor 1 lives at 0x30 and sensor 2 at 0x29. Since both XSHUT pins are driven LOW every time the Artemis boots, the sensors always start from a clean reset state, so hot-restart works fine now.
 
-<img src='/images/mae4190/lab3/passtwo.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/passtwo.webp' width='700'>
 
 ## Distance Mode Comparison
 
@@ -130,27 +130,27 @@ I'm using Long mode as the default. The lab arenas are indoors without intense a
 
 ## Characterization — Range, Accuracy, Repeatability
 
-<img src='/images/mae4190/lab3/measure1.JPG' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/measure1.webp' width='800'>
 
-<img src='/images/mae4190/lab3/measure2.JPG' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/measure2.webp' width='800'>
 
 I collected 50 single-shot readings at 5 distances: 100, 500, 900, 1300, and 1700 mm, for both sensors in both Short and Long mode.
 
 Later in the lab 4, I also 3D-printed ToF sensor mount to make them on robot solidly.
 
-<img src='/images/mae4190/lab3/3d_printed_tof_sensor_mount_2.JPG' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/3d_printed_tof_sensor_mount_2.webp' width='800'>
 
-<img src='/images/mae4190/lab3/3d_printed_tof_sensor_mount.JPG' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/3d_printed_tof_sensor_mount.webp' width='800'>
 
 ### Sensor 1 Accuracy
 
-<img src='/images/mae4190/lab3/tof_accuracy_sensor1.png' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof_accuracy_sensor1.webp' width='800'>
 
 Sensor 1 reads consistently 15–30 mm below the true value in Long mode, which is a normal mounting offset from the lens cover. Short mode performs similarly within its range, but the 1700 mm readings blow up to ~2200 mm, which is well beyond Short mode's 1.3 m limit.
 
 ### Sensor 2 Accuracy
 
-<img src='/images/mae4190/lab3/tof_accuracy_sensor2.png' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof_accuracy_sensor2.webp' width='800'>
 
 Sensor 2 is more accurate in absolute terms, with error within ±15 mm from 100–1300 mm. Both modes blow up at 1700 mm for the same reason.
 
@@ -158,7 +158,7 @@ Sensor 2 is more accurate in absolute terms, with error within ±15 mm from 100�
 
 σ is under 2 mm for all distances up to 1300 mm. The 1700 mm histograms are widely spread or bimodal, confirming the sensor shouldn't be relied on past its rated range.
 
-<img src='/images/mae4190/lab3/tof_repeatability.png' width='900'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof_repeatability.webp' width='900'>
 
 ## Non-Blocking Loop Speed
 
@@ -198,7 +198,7 @@ void record_tof_data() {
 
 Each loop iteration takes on the order of tens of microseconds. The limiting factor is the ToF sensor ranging time: Long mode uses a 33 ms timing budget, capping the data rate at ~30 Hz theoretically and ~10 Hz in practice. The IMU runs faster since it just reads an I2C register, bounded by its ODR at ~100 Hz.
 
-<img src='/images/mae4190/lab3/runtime.png' width='900'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/runtime.webp' width='900'>
 
 ## Distance vs Time
 
@@ -229,13 +229,13 @@ case SEND_TOF_DATA: {
 </div>
 </details>
 
-<img src='/images/mae4190/lab3/tof_distance_vs_time.png' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof_distance_vs_time.webp' width='800'>
 
 Both sensors track distance changes over time. I moved the car forward and backward.
 
 ## IMU Angle vs Time
 
-<img src='/images/mae4190/lab3/imu_angle_vs_time.png' width='800'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/imu_angle_vs_time.webp' width='800'>
 
 I moved the car forward and backward. Pitch and roll from the complementary filter vs raw accelerometer. The filter smooths accelerometer noise while avoiding gyroscope drift accumulation. 
 
@@ -243,13 +243,13 @@ I moved the car forward and backward. Pitch and roll from the complementary filt
 
 Both datasets on one figure with dual y-axes, distance on the left, angle on the right. The IMU trace seems more frenquent since it samples at a higher rate (10Hz vs. 50Hz).
 
-<img src='/images/mae4190/lab3/tof_imu_combined.png' width='900'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab3/tof_imu_combined.webp' width='900'>
 
 ---
 
 Meet my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat6.png' width='400'>
-<img src='/images/mae4190/cats/cat11.png' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat6.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat11.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

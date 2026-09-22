@@ -2,7 +2,7 @@
 layout: archive
 title: "Lab 7: Kalman Filter"
 permalink: /mae4190/lab7/
-author_profile: true
+author_profile: false
 ---
 
 {% include base_path %}
@@ -32,7 +32,7 @@ Sigma = (I - K C) Sigma_p
 
 I drove the robot at a constant PWM of 80 toward the wall and logged ToF distance at every sensor sample. The firmware stops automatically when distance drops below 500 mm and streams the data back over BLE. I got 18 readings over about 1.5 seconds.
 
-<img src='/images/mae4190/lab7/lab7_step_response_1.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab7/lab7_step_response_1.webp' width='700'>
 
 The top panel overlays piecewise linear fits on the raw distance data to show where the slope was measured. The bottom panel confirms the motor input was a constant step at PWM 80 throughout the run. From the velocity curve I extracted two estimates of steady-state speed. The finite-difference method gave 1235 mm/s, and piecewise linear fitting across 50%-overlap segments gave 1225 mm/s. They agree to within 1%, so I used the piecewise-linear result as the reference speed scale for the offline model fit.
 
@@ -71,7 +71,7 @@ For the covariance matrices I set sigma1 = 50 mm, sigma2 = 50 mm/s, sigma3 = 20 
 
 Before putting the filter on the robot, I ran it offline over a separate PID data set. The KF loop steps through every PID timestamp. When a real ToF reading falls within 50 ms of the current PID timestamp, the filter runs prediction + update. Otherwise it runs prediction only.
 
-<img src='/images/mae4190/lab7/lab7_kf_python.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab7/lab7_kf_python.webp' width='700'>
 
 <details>
 <summary>Python: KF step function</summary>
@@ -117,7 +117,7 @@ The estimate follows the same overall trend as the raw ToF readings while fillin
 
 I also compared three sigma configurations to understand the trade-off:
 
-<img src='/images/mae4190/lab7/kf_sigma_sensitivity.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab7/kf_sigma_sensitivity.webp' width='700'>
 
 This cannot really see from the figure since the difference are not that huge, but based on result I read: High process noise (sigma1=sigma2=500) makes the estimate chase every measurement closely. Low process noise (sigma1=sigma2=10) locks onto the model and barely moves when a new reading arrives. The balanced setting (sigma1=sigma2=50) sits in between and follows the physics while still correcting for sensor drift. I kept sigma3=20 for all three since the ToF noise is a physical property of the sensor.
 
@@ -179,12 +179,12 @@ tof_current  = kf_pos;   // PID uses KF estimate instead of raw ToF
 
 The PID gains were tuned down to kp=0.025, ki=0.001, kd=0.008 to avoid saturation at the high speeds the KF enables.
 
-<img src='/images/mae4190/lab7/lab7_kf_pid.png' width='700'>
+<img loading="lazy" decoding="async" src='/images/mae4190/lab7/lab7_kf_pid.webp' width='700'>
 
 Out of 84 logged KF debug frames, 19 used a real ToF measurement and 65 ran prediction only. That is 77% prediction-only steps, so most PID cycles relied on the model estimate between sparse ToF updates. The robot stopped at 251 mm against a 304 mm target, giving a final error of 53 mm.
 
-<div style="width:700px;">
-  <video width='700' controls>
+<div style="width:100%; max-width:700px;">
+  <video preload="none" width='700' controls>
     <source src='/images/mae4190/lab7/car_stop_by_wall.mp4' type='video/mp4'>
   </video>
   <div style="text-align:center; font-size:0.95em;">KF-PID wall approach.</div>
@@ -194,7 +194,7 @@ The firmware also includes a 3-sigma innovation gate with a minimum threshold. I
 
 Meet my cat Mulberry! 🐱
 
-<img src='/images/mae4190/cats/cat9.png' width='400'>
-<img src='/images/mae4190/cats/cat10.png' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)
