@@ -26,8 +26,8 @@ author:
   name             : "Qiandao Liu"
   pronouns         : # example: "she/her"
   bio              : "BS CS @Cornell University"
-  location         : "Ithaca, NY"
-  employer         : "Cornell University"
+  location         :
+  employer         :
   uri              : # URL
   email            : "ql342@cornell.edu" 
 
