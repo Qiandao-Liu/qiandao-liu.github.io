@@ -33,6 +33,7 @@
     "section": "publications",
     "title": "Real-to-sim-to-real (R2S2R) as a scalable engine for training and evaluating robot policies",
     "url": "/projects/rby1-real2sim2real/",
+    "status": "World Labs Tech Report",
     "summary": "My contribution to the Real2Sim2Real effort: bimanual manipulation of a deformable power cord with RB-Y1.",
     "poster": "/images/research/rby1.webp",
     "preview": "/images/research/r2s2r-policy-rollouts.mp4",

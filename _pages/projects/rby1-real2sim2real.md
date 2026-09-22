@@ -5,6 +5,7 @@ layout: research-project
 title: "Real-to-sim-to-real (R2S2R) as a scalable engine for training and evaluating robot policies"
 permalink: /projects/rby1-real2sim2real/
 research_id: pub3
+hide_status: true
 report_url: https://www.worldlabs.ai/blog/real-to-sim-to-real
 ---
 

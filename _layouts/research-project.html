@@ -6,7 +6,7 @@ layout: default
   <article class="research-project">
     <a class="research-project__back" href="{{ '/' | relative_url }}#{{ project.id }}">&larr; All publications &amp; projects</a>
     <header class="research-project__header">
-      {% if project.status %}<p class="research-project__status">{{ project.status }}</p>{% endif %}
+      {% unless page.hide_status %}{% if project.status %}<p class="research-project__status">{{ project.status }}</p>{% endif %}{% endunless %}
       <h1>{{ project.title }}</h1>
       {% if page.report_url %}<a class="research-project__report" href="{{ page.report_url }}">Read the World Labs report &rarr;</a>{% endif %}
       {% if project.authors %}<div class="research-project__authors">{{ project.authors | markdownify }}</div>{% endif %}
