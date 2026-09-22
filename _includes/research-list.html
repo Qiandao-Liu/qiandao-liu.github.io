@@ -16,7 +16,7 @@
       {% if publication.authors %}<div class="research-entry__authors">{{ publication.authors | markdownify }}</div>{% endif %}
       {% if publication.author_note %}<p class="research-entry__author-note">{{ publication.author_note }}</p>{% endif %}
       {% if publication.attribution %}<div class="research-entry__authors">{{ publication.attribution | markdownify }}</div>{% endif %}
-      <p class="research-entry__venue">{{ publication.status }}{% if publication.highlight %} <strong class="research-entry__highlight">{{ publication.highlight }}</strong>{% endif %}{% if publication.type %}<span class="research-entry__type"> · {{ publication.type }}</span>{% endif %}</p>
+      {% if publication.status or publication.highlight or publication.type %}<p class="research-entry__venue">{{ publication.status }}{% if publication.highlight %} <strong class="research-entry__highlight">{{ publication.highlight }}</strong>{% endif %}{% if publication.type %}<span class="research-entry__type"> · {{ publication.type }}</span>{% endif %}</p>{% endif %}
       {% if publication.links.size > 0 %}
       <nav class="research-links" aria-label="Resources for {{ publication.title | escape }}">
         {% for link in publication.links %}<a href="{% if link.url contains '://' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}">{{ link.label }}</a>{% endfor %}

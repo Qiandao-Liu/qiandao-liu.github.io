@@ -8,12 +8,20 @@ research_id: pub3
 report_url: https://www.worldlabs.ai/blog/real-to-sim-to-real
 ---
 
-<figure class="research-project__video" id="video">
-  <video controls muted loop playsinline preload="none" data-playback-rate="2" width="960" height="540" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 policy rollouts under perturbations">
-    <source src="{{ '/images/research/rby1-perturbation.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <figcaption>RB-Y1 power-cord manipulation: policy rollouts under perturbations.</figcaption>
-</figure>
+<div class="r2s2r-video-grid" id="video">
+  <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 policy rollouts">
+    <source src="{{ '/images/research/r2s2r-policy-rollouts.mp4' | relative_url }}" type="video/mp4">
+  </video><figcaption>Policy rollouts.</figcaption></figure>
+  <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 perturbation test">
+    <source src="{{ '/images/research/r2s2r-perturbation.mp4' | relative_url }}" type="video/mp4">
+  </video><figcaption>Perturbation test.</figcaption></figure>
+  <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 power cable rollout">
+    <source src="{{ '/images/research/r2s2r-power-cable.mp4' | relative_url }}" type="video/mp4">
+  </video><figcaption>Power-cable rollout.</figcaption></figure>
+  <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 water hose rollout">
+    <source src="{{ '/images/research/r2s2r-water-hose.mp4' | relative_url }}" type="video/mp4">
+  </video><figcaption>Water-hose rollout.</figcaption></figure>
+</div>
 
 <section class="project-story">
   <figure><img src="{{ '/images/research/rby1.webp' | relative_url }}" alt="RB-Y1 robot manipulating a power cord beside a refrigerator" loading="lazy" decoding="async" width="640" height="360"><figcaption>The RB-Y1 power-cord manipulation task.</figcaption></figure>
