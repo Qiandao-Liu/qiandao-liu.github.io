@@ -1,5 +1,5 @@
-<script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
+<script type="module" src="{{ base_path }}/assets/js/main.min.js?v={{ site.time | date: '%s' }}"></script>
 
 {% include analytics.html %}
 
-<script defer src="{{ '/assets/js/research-media.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/research-media.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
