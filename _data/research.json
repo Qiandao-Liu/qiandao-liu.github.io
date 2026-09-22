@@ -3,7 +3,7 @@
     "id": "pub4",
     "section": "publications",
     "title": "From Hand to Hand: A Shared Wearable Interface and Functional Benchmark for Dexterous Manipulation",
-    "url": "https://youtu.be/QDxh9IzqLks",
+    "url": "https://wudiwudiwudi2026.github.io/",
     "status": "Under Review",
     "authors": "**Qiandao Liu**\\*, Shengmiao Jin\\*, Laura Ren, Tapomayukh Bhattacharjee",
     "summary": "WUDI reuses one wearable sensing system across robot hands; OTHER benchmarks functional dexterity through eight tasks inspired by occupational therapy.",
@@ -15,6 +15,10 @@
         "url": "/files/research/from-hand-to-hand.pdf"
       },
       {
+        "label": "Website",
+        "url": "https://wudiwudiwudi2026.github.io/"
+      },
+      {
         "label": "Video",
         "url": "https://youtu.be/QDxh9IzqLks"
       }
@@ -22,7 +26,7 @@
     "video_width": 640,
     "video_height": 360,
     "author_note": "* Equal contribution",
-    "title_url": null
+    "title_url": "https://wudiwudiwudi2026.github.io/"
   },
   {
     "id": "pub3",

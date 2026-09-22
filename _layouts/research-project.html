@@ -8,7 +8,7 @@ layout: default
     <header class="research-project__header">
       {% if project.status %}<p class="research-project__status">{{ project.status }}</p>{% endif %}
       <h1>{{ project.title }}</h1>
-      {% if page.report_url %}<a class="research-project__report" href="{{ page.report_url }}">Read the WL report &rarr;</a>{% endif %}
+      {% if page.report_url %}<a class="research-project__report" href="{{ page.report_url }}">Read the World Labs report &rarr;</a>{% endif %}
       {% if project.authors %}<div class="research-project__authors">{{ project.authors | markdownify }}</div>{% endif %}
       {% if project.author_note %}<p class="research-entry__author-note">{{ project.author_note }}</p>{% endif %}
       {% if project.attribution %}<div class="research-project__authors">{{ project.attribution | markdownify }}</div>{% endif %}
