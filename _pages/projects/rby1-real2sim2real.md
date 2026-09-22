@@ -12,21 +12,20 @@ report_url: https://www.worldlabs.ai/blog/real-to-sim-to-real
 <div class="r2s2r-video-grid" id="video">
   <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 policy rollouts">
     <source src="{{ '/images/research/r2s2r-policy-rollouts.mp4' | relative_url }}" type="video/mp4">
-  </video><figcaption>Policy rollouts.</figcaption></figure>
+  </video><figcaption>Power-cable rollout with perturbation.</figcaption></figure>
   <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 perturbation test">
     <source src="{{ '/images/research/r2s2r-perturbation.mp4' | relative_url }}" type="video/mp4">
-  </video><figcaption>Perturbation test.</figcaption></figure>
+  </video><figcaption>Water-hose randomization test.</figcaption></figure>
   <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 power cable rollout">
     <source src="{{ '/images/research/r2s2r-power-cable.mp4' | relative_url }}" type="video/mp4">
-  </video><figcaption>Power-cable rollout.</figcaption></figure>
+  </video><figcaption>Power-cord 1-hour rollout.</figcaption></figure>
   <figure><video controls muted loop playsinline preload="none" data-playback-rate="2" width="640" height="360" poster="{{ '/images/research/rby1.webp' | relative_url }}" aria-label="RB-Y1 water hose rollout">
     <source src="{{ '/images/research/r2s2r-water-hose.mp4' | relative_url }}" type="video/mp4">
-  </video><figcaption>Water-hose rollout.</figcaption></figure>
+  </video><figcaption>Water-hose 1-hour rollout.</figcaption></figure>
 </div>
 
-<section class="project-story">
-  <figure><img src="{{ '/images/research/rby1.webp' | relative_url }}" alt="RB-Y1 robot manipulating a power cord beside a refrigerator" loading="lazy" decoding="async" width="640" height="360"><figcaption>The RB-Y1 power-cord manipulation task.</figcaption></figure>
-  <div><h2>My contribution</h2><p>At SceniX (World Labs), I worked on the <strong>power-cord manipulation task with RB-Y1</strong> as part of the team's Real2Sim2Real effort. This task involves coordinating two robot arms to manipulate a flexible power cord around a refrigerator.</p></div>
+<section class="research-project__text">
+  <h2>My contribution</h2><p>At SceniX (World Labs), I worked on the <strong>power-cord manipulation task with RB-Y1</strong> as part of the team's Real2Sim2Real effort. This task involves coordinating two robot arms to manipulate a flexible power cord around a refrigerator.</p>
 </section>
 
 For the complete methodology and results across robots and tasks, see [Building Worlds That Train Robots](https://www.worldlabs.ai/blog/real-to-sim-to-real).
