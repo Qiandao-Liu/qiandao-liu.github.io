@@ -25,7 +25,7 @@ report_url: https://www.worldlabs.ai/blog/real-to-sim-to-real
 </div>
 
 <section class="research-project__text">
-  <h2>My contribution</h2><p>At SceniX (World Labs), I worked on the <strong>power-cord manipulation task with RB-Y1</strong> as part of the team's Real2Sim2Real effort. This task involves coordinating two robot arms to manipulate a flexible power cord around a refrigerator.</p>
+  <p>At SceniX (World Labs), I worked on the <strong>power-cord manipulation task with RB-Y1</strong> as part of the team's Real2Sim2Real effort and a proof-of-concept collaboration with Samsung Robotics. The work involved coordinating two robot arms to manipulate a flexible power cord around a refrigerator and precisely insert a water hose into its port.</p>
 </section>
 
 For the complete methodology and results across robots and tasks, see [Building Worlds That Train Robots](https://www.worldlabs.ai/blog/real-to-sim-to-real).
