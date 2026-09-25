@@ -9,12 +9,7 @@
     "summary": "WUDI reuses one wearable sensing system across robot hands; OTHER benchmarks functional dexterity through eight tasks inspired by occupational therapy.",
     "poster": "/images/research/wudi.webp",
     "preview": "/images/research/wudi-preview.mp4",
-    "links": [
-      {
-        "label": "Website",
-        "url": "https://wudiwudiwudi2026.github.io/"
-      }
-    ],
+    "links": [],
     "video_width": 640,
     "video_height": 360,
     "title_url": "https://wudiwudiwudi2026.github.io/"
