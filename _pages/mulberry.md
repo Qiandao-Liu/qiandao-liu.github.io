@@ -1,12 +1,13 @@
 ---
 layout: single
 permalink: /mulberry/
-title: "Mulberry Now Lives with a World Memory Champion"
+title: "Mulberry Now Lives with a World Memory Master"
 author_profile: false
 mathjax: false
 mermaid: false
 ---
 
+<div class="mulberry-page-content">
 <figure class="mulberry-video">
   <div class="mulberry-video__frame">
     <video controls playsinline preload="metadata" data-manual-video aria-label="Video of Mulberry">
@@ -27,4 +28,5 @@ mermaid: false
     <img loading="lazy" decoding="async" src="{{ '/images/mulberry/cat' | append: forloop.index | append: '.webp' | relative_url }}" alt="Mulberry photo {{ forloop.index }}">
   </figure>
 {% endfor %}
+</div>
 </div>
