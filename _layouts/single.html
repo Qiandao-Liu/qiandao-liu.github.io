@@ -14,7 +14,7 @@ layout: default
   {% endunless %}
 {% endif %}
 
-<div id="main" role="main">
+<div id="main"{% if page.url == '/mulberry/' %} class="mulberry-main"{% endif %} role="main">
   {% include sidebar.html %}
 
   <article class="page{% if page.url == '/mulberry/' %} mulberry-page-shell{% endif %}" itemscope itemtype="http://schema.org/CreativeWork">

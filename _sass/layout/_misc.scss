@@ -1,3 +1,7 @@
+.mulberry-main {
+  margin-top: 1em !important;
+}
+
 .mulberry-page-shell {
   @include breakpoint($large) {
     float: none;
@@ -5,6 +9,10 @@
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.mulberry-page-shell .page__title {
+  margin-bottom: 0.8rem;
 }
 
 .mulberry-page-content {
@@ -102,6 +110,8 @@
   margin: 0;
   padding: 0;
   background: transparent;
+  content-visibility: auto;
+  contain-intrinsic-size: 158px 180px;
   transform: rotate(var(--sticker-tilt)) scale(var(--sticker-scale));
 }
 

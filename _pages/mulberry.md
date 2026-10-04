@@ -1,7 +1,7 @@
 ---
 layout: single
 permalink: /mulberry/
-title: "Mulberry Now Lives with a World Memory Master"
+title: "Mulberry Now Lives with World Memory Master"
 author_profile: false
 mathjax: false
 mermaid: false
