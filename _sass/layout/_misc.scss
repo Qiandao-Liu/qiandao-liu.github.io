@@ -83,17 +83,21 @@
 }
 
 .mulberry-stickers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  grid-auto-rows: clamp(150px, 16vw, 190px);
+  column-gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  row-gap: clamp(1.3rem, 2.6vw, 2rem);
   align-items: center;
-  gap: clamp(0.9rem, 2vw, 1.6rem);
   padding: 1rem 0 3rem;
 }
 
 .mulberry-sticker {
   order: var(--sticker-order);
-  flex: 0 1 clamp(108px, 12vw, 158px);
+  width: min(100%, 158px);
+  height: 100%;
+  justify-self: center;
+  align-self: center;
   margin: 0;
   padding: 0;
   background: transparent;
@@ -102,8 +106,10 @@
 
 .mulberry-sticker img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: 100%;
   /* The source WebP files have transparent backgrounds. Crisp offset shadows
      trace each cat's actual silhouette instead of creating a glowing box. */
   filter: drop-shadow(3px 0 0 #fff)
@@ -120,5 +126,9 @@
 @media (max-width: 600px) {
   .misc-columns { grid-template-columns: minmax(0, 1fr); }
   .mulberry-video__frame { width: 100%; }
-  .mulberry-sticker { flex-basis: clamp(96px, 27vw, 136px); }
+  .mulberry-stickers {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    grid-auto-rows: clamp(130px, 25vw, 165px);
+  }
+  .mulberry-sticker { width: min(100%, 136px); }
 }
