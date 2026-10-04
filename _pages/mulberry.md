@@ -25,7 +25,7 @@ mermaid: false
   {% assign scale_value = scale_step | times: 0.01 | plus: 0.92 %}
   {% assign sticker_order = forloop.index0 | times: 17 | modulo: 30 %}
   <figure class="mulberry-sticker" style="--sticker-tilt: {{ tilt_value }}deg; --sticker-scale: {{ scale_value }}; --sticker-order: {{ sticker_order }};">
-    <img loading="lazy" decoding="async" src="{{ '/images/mulberry/cat' | append: forloop.index | append: '.webp' | relative_url }}" alt="Mulberry photo {{ forloop.index }}">
+    <img loading="lazy" decoding="async" src="{{ '/images/mulberry/cat' | append: forloop.index | append: '.webp?v=2' | relative_url }}" alt="Mulberry photo {{ forloop.index }}">
   </figure>
 {% endfor %}
 </div>
