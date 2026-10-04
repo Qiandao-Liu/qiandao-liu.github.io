@@ -1,5 +1,5 @@
 .mulberry-main {
-  margin-top: 1em !important;
+  margin-top: -1em !important;
 }
 
 .mulberry-page-shell {
@@ -12,7 +12,7 @@
 }
 
 .mulberry-page-shell .page__title {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.25rem;
 }
 
 .mulberry-page-content {
@@ -110,8 +110,6 @@
   margin: 0;
   padding: 0;
   background: transparent;
-  content-visibility: auto;
-  contain-intrinsic-size: 158px 180px;
   transform: rotate(var(--sticker-tilt)) scale(var(--sticker-scale));
 }
 
@@ -121,17 +119,6 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  /* The source WebP files have transparent backgrounds. Crisp offset shadows
-     trace each cat's actual silhouette instead of creating a glowing box. */
-  filter: drop-shadow(3px 0 0 #fff)
-          drop-shadow(-3px 0 0 #fff)
-          drop-shadow(0 3px 0 #fff)
-          drop-shadow(0 -3px 0 #fff)
-          drop-shadow(2px 2px 0 #fff)
-          drop-shadow(-2px 2px 0 #fff)
-          drop-shadow(2px -2px 0 #fff)
-          drop-shadow(-2px -2px 0 #fff)
-          drop-shadow(0 7px 12px rgba(0, 0, 0, 0.2));
 }
 
 @media (max-width: 600px) {
