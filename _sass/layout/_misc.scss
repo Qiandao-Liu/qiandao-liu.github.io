@@ -1,0 +1,109 @@
+.misc-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 300px));
+  gap: 1.5rem;
+  margin: 1.5rem 0 3rem;
+}
+
+.misc-column {
+  display: block;
+  padding: 0.65rem;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--global-bg-color);
+  color: var(--global-text-color) !important;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.12);
+  text-decoration: none !important;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.misc-column:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.misc-column img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.misc-column span {
+  display: block;
+  padding: 0.75rem 0.35rem 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.mulberry-video {
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.mulberry-video__frame {
+  width: min(100%, 760px);
+  aspect-ratio: 4 / 3;
+  margin: 0 auto 0.8rem;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+}
+
+.mulberry-video__frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: 0;
+}
+
+.mulberry-video figcaption {
+  margin-top: 0.45rem;
+  color: var(--global-text-color-light);
+  font-size: 0.92rem;
+  font-style: italic;
+}
+
+.mulberry-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.6rem);
+  padding: 1rem 0 3rem;
+}
+
+.mulberry-sticker {
+  order: var(--sticker-order);
+  flex: 0 1 clamp(108px, 12vw, 158px);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  transform: rotate(var(--sticker-tilt)) scale(var(--sticker-scale));
+}
+
+.mulberry-sticker img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The source WebP files have transparent backgrounds. Crisp offset shadows
+     trace each cat's actual silhouette instead of creating a glowing box. */
+  filter: drop-shadow(3px 0 0 #fff)
+          drop-shadow(-3px 0 0 #fff)
+          drop-shadow(0 3px 0 #fff)
+          drop-shadow(0 -3px 0 #fff)
+          drop-shadow(2px 2px 0 #fff)
+          drop-shadow(-2px 2px 0 #fff)
+          drop-shadow(2px -2px 0 #fff)
+          drop-shadow(-2px -2px 0 #fff)
+          drop-shadow(0 7px 12px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 600px) {
+  .misc-columns { grid-template-columns: minmax(0, 1fr); }
+  .mulberry-video__frame { width: 100%; }
+  .mulberry-sticker { flex-basis: clamp(96px, 27vw, 136px); }
+}

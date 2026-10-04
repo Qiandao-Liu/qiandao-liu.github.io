@@ -215,7 +215,7 @@ The tradeoff is that the lower friction causes some chassis drift during braking
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat19.webp" width="400">
-<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat20.webp" width="400">
+<img loading="lazy" decoding="async" src="/images/mulberry/cat19.webp" width="400">
+<img loading="lazy" decoding="async" src="/images/mulberry/cat20.webp" width="400">
 
 [Back to MAE 4190](/mae4190/)

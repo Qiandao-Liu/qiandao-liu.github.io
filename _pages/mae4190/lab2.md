@@ -450,6 +450,6 @@ The biggest practical lesson was that communication limits were more restrictive
 ---
 Meet with my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat4.webp' width='300'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat3.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mulberry/cat4.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)

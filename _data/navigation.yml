@@ -7,4 +7,5 @@ main:
   - title: "Projects"
     url: /portfolio/
     academic: true
-
+  - title: "Misc"
+    url: /misc/

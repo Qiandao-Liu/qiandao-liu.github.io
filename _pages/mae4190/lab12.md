@@ -350,26 +350,26 @@ Waypoints 1 through 3 are hit approximately. The offboard laptop sends heading a
 Meet my cat Mulberry! 🐱
 
 <div>
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat4.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat5.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat6.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat7.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat8.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat11.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat12.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat13.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat14.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat15.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat16.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat17.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat18.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat19.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat20.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat3.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat4.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat5.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat6.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat7.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat8.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat9.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat11.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat12.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat13.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat14.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat16.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat17.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat18.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat19.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat20.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
 </div>
 
 [Back to MAE 4190](/mae4190/)

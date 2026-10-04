@@ -276,7 +276,7 @@ if (tofSensor1.checkForDataReady()) {
 
 Meet with my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat15.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

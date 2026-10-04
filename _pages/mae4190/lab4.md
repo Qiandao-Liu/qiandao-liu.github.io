@@ -11,7 +11,7 @@ My robot **Mulberry** has fully completed its great hardware assembly, and the n
 
 <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
   <img loading="lazy" decoding="async" src='/images/mae4190/lab4/final_assambled_pic.webp' style='height:260px; width:auto; object-fit:contain;'>
-  <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' style='height:260px; width:auto; object-fit:contain;'>
+  <img loading="lazy" decoding="async" src='/images/mulberry/cat9.webp' style='height:260px; width:auto; object-fit:contain;'>
 </div>
 
 ## Prelab
@@ -246,7 +246,7 @@ The right turn landed at −90.5° and the left turn at +90.2°, both very close
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat3.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat7.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat3.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat7.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

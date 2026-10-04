@@ -249,7 +249,7 @@ Both datasets on one figure with dual y-axes, distance on the left, angle on the
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat6.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat11.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat6.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat11.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

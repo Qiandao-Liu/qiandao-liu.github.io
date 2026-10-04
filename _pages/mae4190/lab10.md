@@ -172,10 +172,10 @@ The result is still not perfect. The estimate snaps to cell centers, so some qua
 
 <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:48%; text-align:center;">
-    <img loading="lazy" decoding="async" src="/images/mae4190/cats/cat3.webp" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mulberry/cat3.webp" width="100%">
   </div>
   <div style="width:48%; text-align:center;">
-    <img loading="lazy" decoding="async" src="/images/mae4190/cats/cat8.webp" width="100%">
+    <img loading="lazy" decoding="async" src="/images/mulberry/cat8.webp" width="100%">
   </div>
 </div>
 

@@ -289,7 +289,7 @@ The outside walls came out very well because they were seen from several locatio
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat12.webp" width="400">
-<img loading="lazy" decoding="async" src="/images/mae4190/cats/cat11.webp" width="400">
+<img loading="lazy" decoding="async" src="/images/mulberry/cat12.webp" width="400">
+<img loading="lazy" decoding="async" src="/images/mulberry/cat11.webp" width="400">
 
 [Back to MAE 4190](/mae4190/)

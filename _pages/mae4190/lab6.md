@@ -296,7 +296,7 @@ The setpoint is global, so a BLE write takes effect on the next cycle. No synchr
 
 Meet with my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

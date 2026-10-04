@@ -1,5 +1,5 @@
 // GIF-like playback while visible, without downloading every video on page load.
-const videos = [...document.querySelectorAll('video')];
+const videos = [...document.querySelectorAll('video:not([data-manual-video])')];
 const visible = new Set();
 const pausedByVisitor = new Set();
 const play = video => {

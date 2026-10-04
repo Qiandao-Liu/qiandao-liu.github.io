@@ -449,6 +449,6 @@ Memory use is the main tradeoff of buffering. With `1000` timestamps and `1000` 
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat1.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat2.webp' width='300'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)

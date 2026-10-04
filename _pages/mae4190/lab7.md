@@ -194,7 +194,7 @@ The firmware also includes a 3-sigma innovation gate with a minimum threshold. I
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat9.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat10.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat9.webp' width='400'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

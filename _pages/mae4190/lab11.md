@@ -392,6 +392,6 @@ The `APPROX_POSE` method fixed the wrong-cell jumps without pretending odometry 
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mae4190/cats/cat5.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mae4190/cats/cat12.webp' width='300'>
+<img loading="lazy" decoding="async" src='/images/mulberry/cat5.webp' width='300'> <img loading="lazy" decoding="async" src='/images/mulberry/cat12.webp' width='300'>
 
 [Back to MAE 4190](/mae4190/)
