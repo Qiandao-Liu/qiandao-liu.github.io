@@ -18,6 +18,8 @@ mermaid: false
   <figcaption>This content may be disturbing. Viewer discretion is advised.</figcaption>
 </figure>
 
+<h2>Stickers</h2>
+
 <div class="mulberry-stickers">
 {% for photo in (1..30) %}
   {% assign tilt_value = forloop.index | times: 17 | modulo: 13 | minus: 6 %}
