@@ -179,8 +179,12 @@ video { object-fit: cover; }
   justify-content: space-between;
   gap: 1em;
 }
-.community-service-entry__inline .research-entry__title,
-.community-service-entry__inline .research-entry__venue { margin: 0; }
+.community-service-entry__inline .community-service-entry__label,
+.community-service-entry__inline .community-service-entry__date { margin: 0; }
+.community-service-entry__date {
+  font-size: 0.8em;
+  color: var(--global-text-color);
+}
 @media (max-width: 700px) {
   .community-service-entry__inline { align-items: flex-start; flex-direction: column; gap: 0.2em; }
 }
