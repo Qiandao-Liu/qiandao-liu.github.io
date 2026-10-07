@@ -172,3 +172,15 @@ video { object-fit: cover; }
 .research-entry .research-links a:focus-visible { border-color: var(--global-link-color); }
 
 .community-service__media { aspect-ratio: 640 / 354; }
+.community-service-entry--text { grid-template-columns: 1fr; }
+.community-service-entry__inline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.community-service-entry__inline .research-entry__title,
+.community-service-entry__inline .research-entry__venue { margin: 0; }
+@media (max-width: 700px) {
+  .community-service-entry__inline { align-items: flex-start; flex-direction: column; gap: 0.2em; }
+}
