@@ -50,6 +50,11 @@
 \textbf{#1} \textcolor{secondary}{· #2} & \textcolor{secondary}{\small #3}
 \end{tabularx}}
 
+\newcommand{\serviceentry}[3]{%
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+#1, #2 & \textcolor{secondary}{\small #3}
+\end{tabularx}}
+
 \newcommand{\award}[2]{\textcolor{secondary}{#1} \quad #2}
 \newcommand{\skill}[2]{\textcolor{primary}{\textbf{#1:}} #2\\[0.15em]}
 \newcommand{\sep}{\textcolor{secondary!60}{ · }}
@@ -102,7 +107,7 @@ My research lies at the intersection of robotics, learning, and control. I am fo
 
 %% COMMUNITY SERVICE
 \section{Community Service}
-\cvsingle{Dex-CoRL @ CoRL 2026}{Reviewer}{2026}
+\serviceentry{Reviewer}{Dex-CoRL @ CoRL 2026}{2026}
 
 %% AWARDS
 \section{Honors \& Awards}
