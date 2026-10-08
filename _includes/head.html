@@ -11,7 +11,7 @@
 <script>
   try {
     var preference = localStorage.getItem('theme');
-    var dark = preference === 'dark' || ((!preference || preference === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var dark = preference === 'dark' || (preference === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
     if (dark) document.documentElement.setAttribute('data-theme', 'dark');
   } catch (e) {}
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
