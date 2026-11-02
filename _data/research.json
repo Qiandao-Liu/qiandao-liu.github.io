@@ -9,7 +9,28 @@
     "summary": "WUDI reuses one wearable sensing system across robot hands; OTHER benchmarks functional dexterity through eight tasks inspired by occupational therapy.",
     "poster": "/images/research/wudi.webp",
     "preview": "/images/research/wudi-preview.mp4",
-    "links": [],
+    "links": [
+      {
+        "label": "Paper",
+        "url": "/wudi/WUDI_DexCoRL2026.pdf"
+      },
+      {
+        "label": "Website",
+        "url": "/wudi/"
+      },
+      {
+        "label": "Video",
+        "url": "/wudi/#results"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/wudiwudiwudi2026/WUDI"
+      },
+      {
+        "label": "Hardware",
+        "url": "/wudi/hardware/"
+      }
+    ],
     "video_width": 640,
     "video_height": 360,
     "title_url": "/wudi/"
@@ -24,6 +45,10 @@
     "poster": "/images/research/rby1.webp",
     "preview": "/images/research/r2s2r-policy-rollouts.mp4",
     "links": [
+      {
+        "label": "Report",
+        "url": "https://www.worldlabs.ai/blog/real-to-sim-to-real"
+      },
       {
         "label": "Website",
         "url": "/projects/rby1-real2sim2real/"

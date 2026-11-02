@@ -20,6 +20,14 @@ Examples:
 - Do not create a separate entry or horizontal divider for each reviewing role.
 - Keep organizing roles as separate entries, but do not place horizontal dividers between Community Service entries.
 
+## Publication resource buttons
+
+- Show a resource button whenever that resource exists; do not omit an available paper, report, website, video, code repository, or hardware page.
+- Do not show placeholder or disabled buttons for resources that are not yet available.
+- Use this fixed order: `Paper`, `Report`, `Website`, `Video`, `Code`, `Hardware`.
+- Omit unavailable resource types without changing the relative order of the remaining buttons.
+- Use the exact singular labels above and link directly to the resource whenever possible.
+
 ## WUDI public mirror
 
 - `/wudi/` is the public, non-anonymous mirror of the separate double-blind WUDI site.
