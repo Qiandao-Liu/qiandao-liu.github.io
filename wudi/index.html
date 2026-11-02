@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="WUDI: A Wearable, Unified Dexterous Interface — shared sensorized exoskeleton with interchangeable passive hands.">
+  <meta name="keywords" content="WUDI, dexterous manipulation, wearable interface, OTHER benchmark, robotics, imitation learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WUDI — From Hand to Hand</title>
+
+  <link rel="icon" type="image/png" sizes="256x256" href="./static/images/wudi-crowned-icon.png">
+  <link rel="apple-touch-icon" href="./static/images/wudi-crowned-icon.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,600,700" type="text/css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/parts-explorer-data.js"></script>
+  <script src="./static/js/parts-explorer.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./static/js/model-viewer.js"></script>
+  <script src="./static/js/model-carousel.js"></script>
+</head>
+<body>
+
+<header class="hero-splash" id="hero">
+  <video id="bg-video" autoplay muted playsinline loop preload="auto"
+         poster="./static/images/policy-poster.jpg">
+    <source src="./static/videos/policy_final.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-bottom">
+    <h1 class="hero-title">
+      <img class="hero-brand-icon" src="./static/images/wudi-crowned-icon.png" alt="WUDI" width="256" height="256">
+    </h1>
+  </div>
+  <button class="scroll-indicator" type="button" aria-label="Scroll to content">&darr;</button>
+</header>
+
+<main class="page-content">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="has-text-centered publication-meta">
+        <h1 class="title is-2 publication-title">From Hand to Hand: A Shared Wearable Interface and Functional Benchmark for Dexterous Manipulation</h1>
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            Qiandao Liu<sup>*</sup>, Shengmiao Jin<sup>*</sup>, Laura Ren, Tapomayukh Bhattacharjee<br>
+            Cornell University<br>
+            <span class="is-size-6"><sup>*</sup>Equal contribution</span><br>
+            Dex-CoRL Workshop 2026
+          </span>
+        </div>
+        <div class="publication-actions-slot">
+        <nav class="publication-actions" aria-label="Project resources">
+          <a class="publication-action" href="./WUDI_DexCoRL2026.pdf" target="_blank" rel="noopener" title="Read the paper (PDF)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>
+            <span>Paper</span>
+          </a>
+          <a class="publication-action" href="./hardware/" title="Open the hardware page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3M10 10h4v4h-4z"/></svg>
+            <span>Hardware</span>
+          </a>
+          <a class="publication-action" href="https://github.com/wudiwudiwudi2026/WUDI" target="_blank" rel="noopener" title="View the WUDI code on GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+            <span>Code</span>
+          </a>
+          <span class="publication-action publication-action--disabled" aria-disabled="true" title="arXiv coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19 12 5l5 14M8.8 14h6.4M5 5l14 14M19 5 5 19"/></svg>
+            <span>arXiv</span>
+          </span>
+        </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="section-nav" aria-label="Page sections">
+    <div class="site-container section-nav-inner">
+      <a href="#method">Method</a>
+      <a href="#collection">Data collection</a>
+      <a href="#results">Policy rollout</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#benchmark">OT Benchmark</a>
+    </div>
+  </nav>
+
+  <div class="section-flow">
+  <!-- Policy results: lead with the core autonomous demonstrations. -->
+  <section class="section section--featured" id="results">
+    <div class="container site-container">
+      <div class="section-heading">
+        <h2 class="title is-3">Policy Learning Across Hands</h2>
+      </div>
+      <p class="section-lede policy-lede">
+        We collect 70 demonstrations per task–hand pair and train Diffusion Policy with wrist RGB and relative EE
+        pose. Policies are evaluated on Zipper, Lid, and Coin for both WUJI Hand v1 and LEAP Hand on a UFactory
+        xArm&nbsp;6.
+      </p>
+
+      <div class="policy-view-switch" role="group" aria-label="Choose policy video type">
+        <button class="is-active" type="button" data-policy-view="rollouts" aria-pressed="true">Policy rollouts</button>
+        <button type="button" data-policy-view="collection" aria-pressed="false">Demonstration collection</button>
+      </div>
+
+      <div class="policy-paired-rollouts" data-policy-panel="rollouts">
+        <section class="policy-hand-rollouts" aria-labelledby="wuji-policy-title">
+          <h3 id="wuji-policy-title">WUJI Hand v1</h3>
+          <div class="policy-task-grid">
+            <article class="policy-task-pair">
+              <header><strong>Zipper</strong><span>16/20 · 80%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_zip_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_zip_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Lid</strong><span>15/20 · 75%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_lid_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_lid_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Coin</strong><span>9/20 · 45%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_coin_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/wuji_coin_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="policy-hand-rollouts" aria-labelledby="leap-policy-title">
+          <h3 id="leap-policy-title">LEAP Hand</h3>
+          <div class="policy-task-grid">
+            <article class="policy-task-pair">
+              <header><strong>Zipper</strong><span>11/20 · 55%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_zip_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_zip_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Lid</strong><span>3/20 · 15%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_lid_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_lid_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Coin</strong><span>13/20 · 65%</span></header>
+              <div class="policy-speed-pair">
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_coin_1x.mp4" type="video/mp4"></video></div><figcaption>1×</figcaption></figure>
+                <figure><div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_rollout/web/LEAP_coin_10x.mp4" type="video/mp4"></video></div><figcaption>10× · 20 trials</figcaption></figure>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <div class="policy-paired-rollouts policy-collection-view" data-policy-panel="collection" hidden>
+        <section class="policy-hand-rollouts" aria-labelledby="wuji-collection-title">
+          <h3 id="wuji-collection-title">WUJI Hand v1</h3>
+          <div class="policy-task-grid">
+            <article class="policy-task-pair">
+              <header><strong>Zipper</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/wuji_exo_zip.mp4" type="video/mp4"></video></div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Lid</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/wuji_exo_lid.mp4" type="video/mp4"></video></div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Coin</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/wuji_exo_coin.mp4" type="video/mp4"></video></div>
+            </article>
+          </div>
+        </section>
+        <section class="policy-hand-rollouts" aria-labelledby="leap-collection-title">
+          <h3 id="leap-collection-title">LEAP Hand</h3>
+          <div class="policy-task-grid">
+            <article class="policy-task-pair">
+              <header><strong>Zipper</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/LEAP_exo_zip.mp4" type="video/mp4"></video></div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Lid</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/wuji_exo_lid.mp4" type="video/mp4"></video></div>
+            </article>
+            <article class="policy-task-pair">
+              <header><strong>Coin</strong><span>Teleoperation</span></header>
+              <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/policy_collection/web/LEAP_exo_coin.mp4" type="video/mp4"></video></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Put portable collection immediately after policy results. -->
+  <section class="section" id="collection">
+    <div class="container site-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 class="title is-3"><span class="wudi-rainbow" aria-label="WUDI"><span aria-hidden="true">W</span><span aria-hidden="true">U</span><span aria-hidden="true">D</span><span aria-hidden="true">I</span></span></h2>
+        </div>
+        <p class="section-lede">
+          <strong class="wudi-rainbow" aria-label="WUDI"><span aria-hidden="true">W</span><span aria-hidden="true">U</span><span aria-hidden="true">D</span><span aria-hidden="true">I</span></strong>
+          (<span class="wudi-expansion"><span class="letter-w">W</span>earable, <span class="letter-u">U</span>nified <span class="letter-d">D</span>exterous <span class="letter-i">I</span>nterface</span>) supports collection in everyday environments after brief familiarization. On LEAP Hand, an expert
+          operator achieves <strong>3.62–7.71×</strong> more successful completions per five-minute window than
+          vision-based teleoperation on Zipper, Coin, and Lid.
+        </p>
+      </div>
+      <div class="collection-grid">
+        <figure>
+          <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/web/in_the_wild.mp4" type="video/mp4"></video></div>
+          <figcaption><strong>In the wild</strong><span>Portable collection</span></figcaption>
+        </figure>
+        <figure>
+          <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/web/cafe_final.mp4" type="video/mp4"></video></div>
+          <figcaption><strong>Café</strong><span>Everyday setting</span></figcaption>
+        </figure>
+        <figure>
+          <div class="highlight-video-container"><video data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/web/fridge_final.mp4" type="video/mp4"></video></div>
+          <figcaption><strong>Fridge</strong><span>Everyday setting</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video first, then title, then figure + abstract. -->
+  <section class="section" id="method">
+    <div class="container site-container">
+      <div class="method-video">
+        <video controls preload="metadata" playsinline poster="./static/images/hero-poster.webp">
+          <source src="./static/videos/web/intro.mp4" type="video/mp4">
+        </video>
+        <p class="video-sound-note"><span aria-hidden="true">🔊</span> This video includes audio.</p>
+      </div>
+
+      <div class="section-heading">
+        <h2 class="title is-3">Method Overview</h2>
+      </div>
+
+      <div class="method-layout">
+        <figure class="method-figure">
+          <img src="./static/images/fig1_overview.webp" loading="lazy" decoding="async"
+               alt="Overview of WUDI: shared sensorized exoskeleton, passive-hand assembly, data collection, autonomous execution, and the OTHER tasks.">
+          <figcaption>Shared sensing across WUJI Hand v1 and LEAP Hand, from collection to autonomous execution.</figcaption>
+        </figure>
+        <div class="method-copy">
+          <div class="abstract-details">
+            <div class="content">
+              <h3>Abstract</h3>
+              <p>
+                Collecting demonstrations for dexterous manipulation is difficult to scale across robot hands with
+                different kinematics and contact geometry. Existing interfaces often require embodiment-specific sensing
+                hardware, motion retargeting, or visual correction. We present <strong>WUDI</strong>, a
+                <em>W</em>earable, <em>U</em>nified <em>D</em>exterous <em>I</em>nterface that separates
+                a shared sensorized exoskeleton from interchangeable passive hands and linkages. This design reuses the
+                sensing hardware across embodiments and supports robot-free demonstration collection without visual
+                correction within the supported workspace. We evaluate demonstration collection and policy learning with
+                WUJI Hand v1 and LEAP Hand. To assess functional manipulation, we introduce <strong>OTHER</strong>, an
+                eight-task suite inspired by occupational therapy that spans precision grasping, tool use, pulling,
+                rotation, compression, and fastening. A 12-participant study evaluates usability and task performance,
+                and demonstrations collected with WUDI support autonomous policies on three tasks across both hands. In
+                an expert-operator comparison on LEAP Hand, WUDI yields <strong>3.62–7.71×</strong> more successful task
+                completions per collection window than a vision-based teleoperation baseline.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mechanical design -->
+  <section class="section" id="hardware">
+    <div class="container site-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 class="title is-3">Mechanical Interface</h2>
+        </div>
+      <p>
+        Three components implement the separation of sensing and embodiment: a shared exoskeleton (16 resistive rotary
+        sensors, ~$120 sensing assembly), interchangeable passive hands derived from target kinematics, and
+        embodiment-specific four-bar linkages that transmit MCP/PIP flexion.
+      </p>
+      </div>
+      <!-- Interactive component figure: hover/click a part to isolate it and open its mechanism detail
+           (logic in static/js/parts-explorer.js; without JS the labelled figure shows as a plain image) -->
+      <div class="parts-explorer" data-dim-src="./static/images/parts/figure_dim.webp"
+           data-lit-src="./static/images/parts/figure_clean.webp">
+        <div class="px-figure">
+          <img src="./static/images/parts/figure.webp" width="1982" height="933" loading="lazy" decoding="async"
+               alt="The three components of WUDI for WUJI Hand v1 (left) and LEAP Hand (right): exoskeleton, linkage, and passive hand.">
+        </div>
+        <p class="px-caption">
+          WUJI Hand v1 (left) · LEAP Hand (right). A shared sensorized exoskeleton connects to interchangeable passive
+          hands through embodiment-specific linkages.
+        </p>
+
+        <div class="px-bar">
+          <span class="px-prompt">Explore a component:</span>
+          <button type="button" class="px-tab" data-part="exo" aria-expanded="false" aria-controls="px-card-exo">Exoskeleton</button>
+          <button type="button" class="px-tab" data-part="linkage" aria-expanded="false" aria-controls="px-card-linkage">Linkage</button>
+          <button type="button" class="px-tab" data-part="passive" aria-expanded="false" aria-controls="px-card-passive">Passive Hand</button>
+        </div>
+
+        <div class="px-detail">
+          <div class="px-drawer">
+            <div class="px-drawer-inner">
+            <article class="px-card px-card--wide" id="px-card-exo" data-part="exo" hidden
+                     data-name="Exoskeleton" data-blurb="Shared and sensorized: 16 joint encoders, plus an iPhone that localizes the wrist.">
+              <figure class="px-media">
+                <img src="./static/images/parts/exoskeleton_encoders.webp" width="1889" height="671" loading="lazy" decoding="async"
+                     alt="Exoskeleton finger mechanism (left) and thumb mechanism (right), with joint encoders highlighted in blue.">
+                <figcaption>Finger (left) and thumb (right) mechanisms, joint encoders in blue.
+                  <span class="px-key"><i class="px-swatch" style="--s:#d21f1f"></i>encoder reading axis</span>
+                  <span class="px-key"><i class="px-swatch" style="--s:#5aa84a"></i>axis the finger actually rotates about</span>
+                </figcaption>
+              </figure>
+              <div class="px-text">
+                <p class="px-kicker">Shared across every hand</p>
+                <h3>Sensorized exoskeleton</h3>
+                <div class="px-cols">
+                  <div>
+                    <h4>Joint sensing</h4>
+                    <p>
+                      Worn by the operator and left unchanged when the passive hand is replaced. Each finger accommodates
+                      MCP abduction/adduction and flexion plus PIP flexion; the thumb adds CMC, MCP and IP rotation.
+                      Sixteen resistive rotary sensors measure joint angles or linkage rotation relative to the supporting
+                      segment.
+                    </p>
+                  </div>
+                  <div>
+                    <h4>Localization</h4>
+                    <p>
+                      The iPhone on top streams its 6-DoF ARKit pose over USB via Record3D, and a keyed mount fixes the
+                      phone-to-palm transform, so the wrist is localized without a robot arm or external tracking. Pose
+                      samples are matched to the joint trajectory by timestamp and supply the policy’s relative
+                      end-effector poses.
+                    </p>
+                  </div>
+                </div>
+                <ul class="px-facts">
+                  <li><strong>15</strong> operator-side DoF</li>
+                  <li><strong>16</strong> rotary encoders</li>
+                  <li><strong>6-DoF</strong> wrist pose from ARKit</li>
+                  <li><strong>~$120</strong> system, excl. phone &amp; camera</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="px-card px-card--wide" id="px-card-linkage" data-part="linkage" hidden
+                     data-name="Linkage" data-blurb="Embodiment-specific four-bar linkages that carry finger motion to the passive hand.">
+              <div class="px-media-row">
+                <figure class="px-media">
+                  <img src="./static/images/parts/linkage_fourbar.webp" width="928" height="643" loading="lazy" decoding="async"
+                       alt="Two serial four-bar linkage systems: the first (MCP) in green, the second in blue, and the MCP abduction/adduction axis in pink.">
+                  <figcaption>Two serial four-bar linkages transmit MCP and PIP flexion.</figcaption>
+                </figure>
+                <figure class="px-media">
+                  <img src="./static/images/parts/passive_joints.webp" width="928" height="644" loading="lazy" decoding="async"
+                       alt="Revolute joints connecting the linkage components: joints of the first linkage system in green, serial joints of the second in red.">
+                  <figcaption>Revolute joints connecting the linkage components.</figcaption>
+                </figure>
+              </div>
+              <div class="px-text">
+                <p class="px-kicker">Embodiment-specific</p>
+                <h3>Four-bar linkages</h3>
+                <div class="px-cols">
+                  <div>
+                    <h4>Transmission</h4>
+                    <p>
+                      Couple the passive hand to the shared exoskeleton, accommodating MCP flexion, MCP
+                      abduction/adduction and PIP flexion. Following DEXOP, standoffs fix the base separation; the first
+                      coupler connects the two PIP axes and serves as the second linkage’s moving ground, and the second
+                      coupler connects the middle-link mounts.
+                    </p>
+                  </div>
+                  <div>
+                    <h4>Joints</h4>
+                    <p>
+                      Revolute joints on the linkage mounts connect the couplers: those of the first linkage system
+                      (green) and the serial joints of the second (red). A new hand needs only its own coupler dimensions
+                      and mount positions; thumb couplers are designed per embodiment.
+                    </p>
+                  </div>
+                </div>
+                <ul class="px-facts">
+                  <li><strong>2</strong> serial four-bars per finger</li>
+                  <li>New hand = printed parts + fasteners</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="px-card" id="px-card-passive" data-part="passive" hidden
+                     data-name="Passive Hand" data-blurb="A robot-shaped replica with its wrist camera, so collection looks like deployment.">
+              <figure class="px-media px-views">
+                <div class="px-views-grid">
+                  <span></span>
+                  <span class="px-views-col">Robot hand</span>
+                  <span class="px-views-col">Passive hand</span>
+                  <span class="px-views-row">WUJI</span>
+                  <img src="./static/images/parts/wrist_wuji_real.webp" width="271" height="280" loading="lazy" decoding="async"
+                       alt="Wrist-camera view with the real WUJI Hand v1 at deployment.">
+                  <img src="./static/images/parts/wrist_wuji_passive.webp" width="269" height="280" loading="lazy" decoding="async"
+                       alt="Wrist-camera view with the WUJI passive hand during collection.">
+                  <span class="px-views-row">LEAP</span>
+                  <img src="./static/images/parts/wrist_leap_real.webp" width="268" height="280" loading="lazy" decoding="async"
+                       alt="Wrist-camera view with the real LEAP Hand at deployment.">
+                  <img src="./static/images/parts/wrist_leap_passive.webp" width="272" height="280" loading="lazy" decoding="async"
+                       alt="Wrist-camera view with the LEAP passive hand during collection.">
+                </div>
+                <figcaption>Wrist-camera views: robot hand at deployment vs. passive hand during collection.</figcaption>
+              </figure>
+              <div class="px-text">
+                <p class="px-kicker">Interchangeable</p>
+                <h3>Passive hand + wrist camera</h3>
+                <p>
+                  A replica of the target robot hand, derived from its kinematic description and link meshes. It
+                  reproduces the robot’s supported articulation and contact geometry but carries no encoders. A
+                  RealSense D405 below the palm records RGB-D from the viewpoint the robot will have at deployment.
+                </p>
+                <h4>No visual gap</h4>
+                <p>
+                  Because the passive hand looks like the robot hand, collection frames match deployment frames, so
+                  policies train on them directly, with no segmentation, inpainting, or rendered hand replacement.
+                </p>
+                <ul class="px-facts">
+                  <li>RealSense <strong>D405</strong> RGB-D</li>
+                  <li>CAD derived from the robot model</li>
+                </ul>
+              </div>
+            </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pair the interactive model with additional-hand designs to use desktop width. -->
+  <section class="section" id="explore">
+    <div class="container site-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 class="title is-3">Explore &amp; Extend WUDI</h2>
+        </div>
+        <p class="section-lede">
+          Inspect how the shared WUDI exoskeleton adapts to six robot hands through embodiment-specific couplers and mounts.
+        </p>
+      </div>
+      <div class="explore-grid" data-model-carousel>
+        <div class="model-viewer" data-src="./static/models/wudi_leap.glb">
+          <div class="mv-stage" role="img" aria-label="Interactive 3D model of WUDI configured for LEAP Hand"></div>
+          <div class="mv-status" aria-live="polite">Loading 3D model…<span class="mv-bar"><i></i></span></div>
+          <p class="mv-note" aria-hidden="true">Click the model first, then scroll to zoom</p>
+          <p class="mv-hint"></p>
+          <div class="mv-buttons">
+            <button type="button" class="mv-btn" data-mv="spin" aria-pressed="true" title="Pause rotation" aria-label="Pause rotation">
+              <svg class="mv-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z"/></svg>
+              <svg class="mv-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>
+            </button>
+            <button type="button" class="mv-btn" data-mv="reset" title="Reset view" aria-label="Reset view">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+            </button>
+          </div>
+        </div>
+        <article class="extension-card">
+          <div class="model-carousel-heading">
+            <div>
+              <span class="model-verify-badge is-real" data-model-verification>Real-world verified</span>
+              <h3 data-model-name>LEAP Hand</h3>
+            </div>
+            <span class="model-carousel-count" data-model-count>1 / 6</span>
+          </div>
+          <figure class="model-render">
+            <img src="./static/images/extended/leap.webp" loading="lazy" decoding="async"
+                 alt="Rendered WUDI configuration for LEAP Hand" data-model-render>
+          </figure>
+          <div class="model-carousel-controls" aria-label="Choose a robot-hand model">
+            <button type="button" data-model-direction="previous" aria-label="Previous hand model">←</button>
+            <div class="model-carousel-dots" data-model-dots aria-hidden="true"></div>
+            <button type="button" data-model-direction="next" aria-label="Next hand model">→</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web-native validation graphics replace the low-resolution Fig. 6 bitmap. -->
+  <section class="section" id="validation">
+    <div class="container site-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 class="title is-3">Reconstruction &amp; Workspace</h2>
+        </div>
+        <p class="section-lede">
+          Mechanism-based reconstruction on LEAP recovers passive-hand joint angles with MAE 1.34°–4.20° and
+          RMSE ≤ 5.50°. Motion capture validates the reconstruction; workspace bars compare WUDI with
+          Vision teleop.
+        </p>
+      </div>
+      <div class="validation-layout">
+        <div class="mocap-panel">
+          <h3>Motion-capture validation</h3>
+          <div class="mocap-grid">
+            <figure>
+              <video class="video-zoom" data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/web/mocap_index.mp4" type="video/mp4"></video>
+              <figcaption>Index finger</figcaption>
+            </figure>
+            <figure>
+              <video class="video-zoom" data-autoplay muted loop playsinline controls preload="none"><source src="./static/videos/web/mocap_thumb.mp4" type="video/mp4"></video>
+              <figcaption>Thumb</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="workspace-chart" aria-labelledby="workspace-title">
+          <div class="workspace-chart-head">
+            <div><h3 id="workspace-title">Fingertip workspace coverage</h3><p>Normalized against Vision teleop</p></div>
+            <div class="coverage-legend"><span class="is-wudi">WUDI</span><span class="is-vision">Vision teleop = 1.0</span></div>
+          </div>
+          <div class="coverage-groups">
+            <div class="coverage-group">
+              <h4>LEAP Hand</h4>
+              <div class="coverage-card"><div><strong>Thumb</strong><span>0.27×</span></div><div class="coverage-track"><i style="--coverage:27%"></i></div><small>27% of Vision teleop workspace</small></div>
+              <div class="coverage-card"><div><strong>Non-thumb</strong><span>0.84×</span></div><div class="coverage-track"><i style="--coverage:84%"></i></div><small>84% of Vision teleop workspace</small></div>
+            </div>
+            <div class="coverage-group">
+              <h4>WUJI Hand v1</h4>
+              <div class="coverage-card"><div><strong>Thumb</strong><span>0.83×</span></div><div class="coverage-track"><i style="--coverage:83%"></i></div><small>83% of Vision teleop workspace</small></div>
+              <div class="coverage-card"><div><strong>Non-thumb</strong><span>0.58×</span></div><div class="coverage-track"><i style="--coverage:58%"></i></div><small>58% of Vision teleop workspace</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="workspace-cloud-gallery" aria-labelledby="workspace-title">
+          <div class="workspace-cloud-head">
+            <div class="workspace-cloud-legend" aria-label="Point-cloud legend">
+              <span class="is-native"><i></i>Native workspace</span>
+              <span class="is-wudi"><i></i>WUDI feasible samples</span>
+              <span class="is-vision"><i></i>Vision teleop</span>
+            </div>
+          </div>
+          <div class="workspace-hand-grid">
+            <article class="workspace-hand-card">
+              <header><strong>LEAP Hand</strong><span>WUDI / Vision teleop: 0.27× thumb · 0.84× non-thumb</span></header>
+              <div class="workspace-view-grid">
+                <figure>
+                  <img src="./static/images/workspace/leap_thumb.jpg" width="1280" height="960" loading="lazy" decoding="async"
+                       alt="LEAP Hand thumb workspace: native samples in gray, WUDI feasible samples in blue, and Vision teleop samples in yellow.">
+                  <figcaption>Thumb</figcaption>
+                </figure>
+                <figure>
+                  <img src="./static/images/workspace/leap_non_thumb.jpg" width="1280" height="960" loading="lazy" decoding="async"
+                       alt="LEAP Hand non-thumb workspace: native samples in gray, WUDI feasible samples in blue, and Vision teleop samples in yellow.">
+                  <figcaption>Non-thumb</figcaption>
+                </figure>
+              </div>
+            </article>
+            <article class="workspace-hand-card">
+              <header><strong>WUJI Hand v1</strong><span>WUDI / Vision teleop: 0.83× thumb · 0.58× non-thumb</span></header>
+              <div class="workspace-view-grid">
+                <figure>
+                  <img src="./static/images/workspace/wuji_thumb.jpg" width="1280" height="960" loading="lazy" decoding="async"
+                       alt="WUJI Hand v1 thumb workspace: native samples in gray, WUDI feasible samples in blue, and Vision teleop samples in yellow.">
+                  <figcaption>Thumb</figcaption>
+                </figure>
+                <figure>
+                  <img src="./static/images/workspace/wuji_non_thumb.jpg" width="1280" height="960" loading="lazy" decoding="async"
+                       alt="WUJI Hand v1 non-thumb workspace: native samples in gray, WUDI feasible samples in blue, and Vision teleop samples in yellow.">
+                  <figcaption>Non-thumb</figcaption>
+                </figure>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keep OTHER Benchmark and User Study as the final two content sections. -->
+  <!-- OTHER benchmark -->
+  <section class="section section--compact" id="benchmark">
+    <div class="container site-container">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 class="title is-3"><span class="other-rainbow" aria-label="OTHER"><span aria-hidden="true">O</span><span aria-hidden="true">T</span><span aria-hidden="true">H</span><span aria-hidden="true">E</span><span aria-hidden="true">R</span></span> Benchmark</h2>
+        </div>
+        <div class="benchmark-copy">
+          <p>
+          <strong class="other-rainbow" aria-label="OTHER"><span aria-hidden="true">O</span><span aria-hidden="true">T</span><span aria-hidden="true">H</span><span aria-hidden="true">E</span><span aria-hidden="true">R</span></strong>
+          (<span class="other-expansion"><span class="letter-o">O</span>ccupational <span class="letter-t">T</span>herapy-inspired <span class="letter-h">H</span>and <span class="letter-e">E</span>valuation and t<span class="letter-r">R</span>aining</span>) is an eight-task suite for
+          functional dexterity during human-operated demonstration collection and autonomous execution. Tasks span
+          precision grasp (Coin), grip–torque (Lid), tool use (Write), constrained pulling (Zipper), rotation (Spin),
+          compression (Squeeze), and fastening (Buckle / Unbuckle).
+          </p>
+          <a class="benchmark-buy-link" href="https://www.amazon.com/dp/B0CJFFCSM4" target="_blank" rel="noopener">
+            Buy the OT busy board <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <figure class="benchmark-figure">
+        <img src="./static/images/fig_other_tasks_from_overview.webp" loading="lazy" decoding="async"
+             alt="Eight OTHER tasks performed bare-handed and with WUDI.">
+        <figcaption>
+          Zipper · Spin · Squeeze · Unbuckle · Buckle · Coin · Lid · Write
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- User study -->
+  <section class="section section--compact" id="user-study">
+    <div class="container site-container user-study-layout">
+      <div>
+        <h2 class="title is-3">User Study</h2>
+        <p>
+          A 12-participant study with the WUJI Hand v1 configuration measured usability and task performance. Donning
+          took 16.8±6.3&nbsp;s. Success reached 100% on Zipper, Spin, and Lid; no successes were observed on Squeeze or
+          Unbuckle under the optional-continuation protocol. Perceived success averaged 3.83/5.
+        </p>
+      </div>
+      <figure>
+        <video class="video-zoom" controls preload="none" muted playsinline
+               poster="./static/images/fig5_user_study.webp">
+          <source src="./static/videos/web/user_grid_30x.mp4" type="video/mp4">
+        </video>
+        <figcaption>User-study montage · 30× speed</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="footer is-centered">
+  <p>
+    Dex-CoRL Workshop 2026 ·
+    <a href="https://qiandao-liu.github.io/wudi/">Public project page</a>
+  </p>
+  <p class="has-text-grey is-size-7" style="margin-top: 0.5rem;">
+    WUDI — Wearable, Unified Dexterous Interface
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Order the WUDI Encoder16 board, source the system BOM, print and assemble the hardware, and flash the WUDI firmware.">
+  <title>Build WUDI Hardware</title>
+  <link rel="icon" type="image/png" sizes="256x256" href="../static/images/wudi-crowned-icon.png">
+  <link rel="apple-touch-icon" href="../static/images/wudi-crowned-icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:500,600,700" type="text/css">
+  <link rel="stylesheet" href="./hardware.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Back to the WUDI project page">
+      <img src="../static/images/wudi-crowned-icon.png" alt="" width="28" height="28">
+      <span>WUDI Hardware</span>
+    </a>
+    <nav aria-label="Hardware build steps">
+      <a href="#order">01 · Order PCB</a>
+      <a href="#bom">02 · BOM</a>
+      <a href="#print-assemble">03 · Print &amp; assemble</a>
+      <a href="#firmware">04 · Firmware</a>
+    </nav>
+    <a class="back-link" href="../">← Project page</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">Build WUDI Hardware</h1>
+      </div>
+    </section>
+
+    <ol class="build-flow">
+      <li class="flow-step" id="order">
+        <div class="flow-marker" aria-hidden="true">01</div>
+        <section>
+          <header class="step-heading">
+            <div>
+              <h2>Order assembled boards from JLCPCB</h2>
+            </div>
+            <div class="order-actions">
+              <a class="button button--primary" href="./downloads/WUDI_Encoder16.zip" download>PCB package · ZIP ↓</a>
+              <a class="button button--secondary" href="https://jlcpcb.com/" target="_blank" rel="noopener">Go to JLCPCB ↗</a>
+            </div>
+          </header>
+          <p class="pcb-description">
+            Based on the open-source DexUMI electronics design
+            <a href="#reference-1" aria-label="See DexUMI citation">[1]</a>, our 75 × 75&nbsp;mm mainboard keeps the same STM32F042K6T6 and dual-ADS1256 architecture,
+            exposes all 16 encoder channels, and removes unused circuitry.
+          </p>
+          <ol class="order-guide">
+            <li>
+              <div class="guide-copy"><b>1</b><span><strong>Upload Gerber</strong>Choose Standard PCB/PCBA and upload <code>Gerber.zip</code>.</span></div>
+              <img src="./build_pcb/step1.webp" width="2265" height="1034" loading="lazy" decoding="async" alt="JLCPCB Standard PCB/PCBA page with the Add gerber file control highlighted.">
+            </li>
+            <li>
+              <div class="guide-copy"><b>2</b><span><strong>Enable assembly</strong>Turn on PCB Assembly; select Standard and Both Sides.</span></div>
+              <img src="./build_pcb/step2.webp" width="2266" height="1124" loading="lazy" decoding="async" alt="JLCPCB assembly settings with Standard PCBA and Both Sides highlighted.">
+            </li>
+            <li>
+              <div class="guide-copy"><b>3</b><span><strong>Upload BOM + CPL</strong>Add <code>BOM.csv</code>, then add <code>CPL.csv</code> for placement.</span></div>
+              <img src="./build_pcb/step3.webp" width="2303" height="782" loading="lazy" decoding="async" alt="JLCPCB page showing BOM.csv uploaded and the Add CPL File control.">
+            </li>
+            <li>
+              <div class="guide-copy"><b>4</b><span><strong>Check placement</strong>Inspect both sides, rotations, pin 1, connectors, and unplaced parts.</span></div>
+              <img src="./build_pcb/step4.webp" width="2292" height="1418" loading="lazy" decoding="async" alt="JLCPCB component placement preview for the WUDI Encoder16 board.">
+            </li>
+          </ol>
+        </section>
+      </li>
+
+      <li class="flow-step" id="bom">
+        <div class="flow-marker" aria-hidden="true">02</div>
+        <section>
+          <header class="step-heading">
+            <div>
+              <h2>Build the hardware</h2>
+            </div>
+          </header>
+          <div class="bom-list">
+            <details>
+              <summary>
+                <span><b>Hardware + electronics</b><small>Mechanism, sensing, camera, mainboard, power, and programming tools</small></span>
+                <span class="expand-label">View BOM</span>
+              </summary>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Part</th><th>Qty</th><th>Use / note</th></tr></thead>
+                  <tbody>
+                    <tr class="bom-category"><th colspan="3">Mechanical hardware</th></tr>
+                    <tr>
+                      <td><a href="https://us.store.bambulab.com/products/pla-basic-filament" target="_blank" rel="noopener">PLA Basic filament ↗</a></td>
+                      <td>1 spool</td><td>WUDI exoskeleton printed parts</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://us.store.bambulab.com/products/pla-cf" target="_blank" rel="noopener">PLA-CF filament ↗</a></td>
+                      <td>1 spool</td><td>Structural printed parts</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=M3+assorted+screw+and+nut+kit" target="_blank" rel="noopener">M3 assorted screw and nut kit ↗</a></td>
+                      <td>1 box</td><td>Multiple lengths for finger pivots and assembly</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.mcmaster.com/90265A121/" target="_blank" rel="noopener">M3 × 10 mm stainless-steel shoulder screw, 4 mm shoulder ↗</a></td>
+                      <td>20</td><td>Finger pivots</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/M3-Locknuts-Self-Lock-Stainless-Self/dp/B0D146SHYF/" target="_blank" rel="noopener">M3 stainless-steel lock nuts ↗</a></td>
+                      <td>1 pack</td><td>Secure the finger pivots</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F4CQ9F32" target="_blank" rel="noopener">M3 × 10 mm Chicago screws ↗</a></td>
+                      <td>1 pack (24 sets)</td><td>Binding posts for linkage assembly</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0DQWG9QWT" target="_blank" rel="noopener">M3 external E-clips ↗</a></td>
+                      <td>1 pack (200)</td><td>Retain 3 mm shafts and pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0FDGZKYPJ" target="_blank" rel="noopener">M3 × 6 mm steel shim washer set ↗</a></td>
+                      <td>1 set (48)</td><td>0.1 / 0.2 / 0.3 / 0.5 mm linkage spacing</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F54CX2GP" target="_blank" rel="noopener">3 × 15 mm dowel pins ↗</a></td>
+                      <td>1 pack (100)</td><td>Linkage pivot pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F3JRJKKD" target="_blank" rel="noopener">3 × 18 mm dowel pins ↗</a></td>
+                      <td>1 pack (100)</td><td>Linkage pivot pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F6D3FQPM" target="_blank" rel="noopener">3 × 20 mm dowel pins ↗</a></td>
+                      <td>1 pack (100)</td><td>Linkage pivot pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F54F66WF" target="_blank" rel="noopener">3 × 35 mm dowel pins ↗</a></td>
+                      <td>1 pack (100)</td><td>Linkage pivot pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0F54CXCRV" target="_blank" rel="noopener">3 × 40 mm dowel pins ↗</a></td>
+                      <td>1 pack (50)</td><td>Long linkage pivot pins</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B01M0LYUBB" target="_blank" rel="noopener">Galvanized-steel connector plates, 2.36 × 0.63 in ↗</a></td>
+                      <td>1 pack (20)</td><td>Flat metal joining plates</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/gp/product/B0093CQPW8/" target="_blank" rel="noopener">3M TB641 gripping material ↗</a></td>
+                      <td>1.5 ft</td><td>Grip surface</td>
+                    </tr>
+
+                    <tr class="bom-category"><th colspan="3">Electronics</th></tr>
+                    <tr>
+                      <td><a href="#order">WUDI Encoder16 mainboard ↑</a></td>
+                      <td>1</td><td>Order the assembled board in Step 01</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.digikey.com/en/products/detail/alps-alpine/RDC506018A/19529120" target="_blank" rel="noopener">RDC506018A encoder ↗</a></td>
+                      <td>16</td><td>Joint sensing</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/Kidisoii-2-54mm-Housing-Pre-Crimped-Adapter/dp/B0BW69ZB3M/" target="_blank" rel="noopener">XH 2.54 mm 3-pin wire, 50 cm ↗</a></td>
+                      <td>16</td><td>Encoder leads</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B073SNPF2C" target="_blank" rel="noopener">JST XH2.54 3-pin male/female cable sets ↗</a></td>
+                      <td>2 packs (20 sets each)</td><td>15 cm, 26 AWG connector leads</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=20+Pcs+Straight+Single+Row+2.54mm+40+Pin+Male+Header+Breakaway" target="_blank" rel="noopener">2.54 mm 40-pin male breakaway headers ↗</a></td>
+                      <td>1 pack (20 strips)</td><td>PCB and module connections</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.aliexpress.com/i/2255800720094040.html" target="_blank" rel="noopener">STM32F042K6T6 core board ↗</a></td>
+                      <td>1</td><td>Same MCU module used by DexUMI</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.aliexpress.us/item/3256806212460099.html" target="_blank" rel="noopener">ADS1256 module ↗</a></td>
+                      <td>2</td><td>16 analog input channels total</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/JESSINIE-Module-CH343-Communication-Microcontroller/dp/B0D6352BS9/" target="_blank" rel="noopener">USB-to-TTL module, 3.3 V logic ↗</a></td>
+                      <td>1</td><td>Runtime serial connection to the PC</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/AITRIP-Emulator-Downloader-Programmer-STM32F103C8T6/dp/B0D22S8WVX/" target="_blank" rel="noopener">ST-Link V2 programmer ↗</a></td>
+                      <td>1</td><td>Firmware flashing over SWD</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=5V+1A+regulated+DC+power+supply" target="_blank" rel="noopener">5.0 V / 1.0 A DC power supply ↗</a></td>
+                      <td>1</td><td>Mainboard power</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/dp/B0H2W2ZFR7" target="_blank" rel="noopener">USB 2.0 male to 2-pin bare-wire power cable, 50 cm ↗</a></td>
+                      <td>1 pack (2 cables)</td><td>24 AWG USB power lead</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=XT30+male+female+connector+kit" target="_blank" rel="noopener">XT30 male/female connector set ↗</a></td>
+                      <td>1 set</td><td>Power input and mating lead</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/EDGELEC-Breadboard-1pin-1pin-Connector-Multicolored/dp/B07GD2BWPY/" target="_blank" rel="noopener">Dupont jumper wire kit ↗</a></td>
+                      <td>1 box</td><td>Programming and bench connections</td>
+                    </tr>
+
+                    <tr class="bom-category"><th colspan="3">Camera and other items</th></tr>
+                    <tr>
+                      <td><a href="https://store.intelrealsense.com/buy-intel-realsense-depth-camera-d405.html" target="_blank" rel="noopener">Intel RealSense D405 ↗</a></td>
+                      <td>1</td><td>Wrist-mounted RGB-D camera</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/Lucas-Oil-10533-Lithium-Grease/dp/B004X70LZA/" target="_blank" rel="noopener">Lucas Oil 10533 White Lithium Grease ↗</a></td>
+                      <td>1</td><td>Lubricate moving mechanical interfaces</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/Scotch-Super-Liquid-Ounces-AD114/dp/B001PILFVY/" target="_blank" rel="noopener">Scotch Super Glue Liquid, AD114 ↗</a></td>
+                      <td>1</td><td>Small-part assembly</td>
+                    </tr>
+
+                    <tr class="bom-category"><th colspan="3">Tools make life much easier</th></tr>
+                    <tr>
+                      <td><a href="https://www.dremel.com/us/en/p/8240-5bp-f0138240ad" target="_blank" rel="noopener">Dremel 8240 cordless rotary tool ↗</a></td>
+                      <td>1</td><td>Drilling, trimming, deburring, and small-part finishing</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=Wera+950%2F9+Hex-Plus+Multicolour+metric" target="_blank" rel="noopener">Wera 950/9 Hex-Plus metric key set ↗</a></td>
+                      <td>1 set</td><td>Color-coded metric hex keys make repeated assembly easier</td>
+                    </tr>
+                    <tr>
+                      <td><a href="https://www.amazon.com/s?k=Xiaomi+Electric+Precision+Screwdriver" target="_blank" rel="noopener">Xiaomi Electric Precision Screwdriver ↗</a></td>
+                      <td>1 set</td><td>Fast, low-torque assembly with a compact precision bit set</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </section>
+      </li>
+
+      <li class="flow-step" id="print-assemble">
+        <div class="flow-marker" aria-hidden="true">03</div>
+        <section>
+          <header class="step-heading">
+            <div>
+              <h2>Print and assemble the exoskeleton</h2>
+            </div>
+            <div class="firmware-actions">
+              <a class="button button--primary" href="./downloads/exo.step" download>CAD model · STEP ↓</a>
+              <a class="button button--primary" href="./downloads/exo.stl" download>Print model · STL ↓</a>
+            </div>
+          </header>
+          <p class="pcb-description">The STEP and STL files contain the exoskeleton CAD. Use the STL for printing and the STEP model for CAD reference or modification.</p>
+          <div class="print-guide">
+            <article class="print-settings">
+              <h3>Print settings</h3>
+              <dl>
+                <div><dt>Material</dt><dd>PLA Basic</dd></div>
+                <div><dt>Layer height</dt><dd>0.12 mm</dd></div>
+                <div><dt>Wall loops</dt><dd>4</dd></div>
+              </dl>
+            </article>
+            <figure class="finger-mark-guide">
+              <img src="./build_exoskeleton/finger-part-marks.webp" width="1600" height="1117" loading="lazy" decoding="async" alt="WUDI exoskeleton finger parts marked with one to four lines for identification.">
+              <figcaption>Each printed finger part has an identification mark: <strong>I</strong> = index, <strong>II</strong> = middle, <strong>III</strong> = ring, and <strong>IIII</strong> = little finger.</figcaption>
+            </figure>
+          </div>
+        </section>
+      </li>
+
+      <li class="flow-step" id="firmware">
+        <div class="flow-marker" aria-hidden="true">04</div>
+        <section>
+          <header class="step-heading">
+            <div>
+              <h2>Firmware and PC connection</h2>
+            </div>
+            <div class="firmware-actions">
+              <a class="button button--primary" href="./downloads/WUDI_Encoder16_Firmware.zip" download>Firmware source · ZIP ↓</a>
+              <a class="button button--primary" href="./downloads/WUDI_Encoder16.hex" download>HEX ↓</a>
+              <a class="button button--primary" href="./downloads/WUDI_Encoder16.bin" download>BIN ↓</a>
+            </div>
+          </header>
+          <div class="firmware-grid">
+            <article>
+              <h3><span>4A</span> Flash the STM32</h3>
+              <p>WUDI keeps the same STM32F042K6T6 and dual-ADS1256 modules as DexUMI; only the carrier mainboard is replaced.</p>
+              <ol>
+                <li>Install OpenOCD: <code>sudo apt-get install openocd</code>.</li>
+                <li>With target power off, connect ST-Link V2: <strong>VTref → 3.3 V</strong>, <strong>GND → GND</strong>, <strong>SWDIO → PA13</strong>, and <strong>SWCLK → PA14</strong>. NRST is recommended.</li>
+                <li>Power the board, place <code>WUDI_Encoder16.hex</code> in the current directory, and run:</li>
+              </ol>
+              <pre><code>openocd -f interface/stlink-v2.cfg \
+  -f target/stm32f0x.cfg \
+  -c "program WUDI_Encoder16.hex verify reset exit"</code></pre>
+            </article>
+
+            <article>
+              <h3><span>4B</span> Connect the board to the PC</h3>
+              <ol>
+                <li>Insert the STM32 core board in the top socket and both ADS1256 modules in the lower sockets. Confirm orientation before applying power.</li>
+                <li>Connect regulated <strong>5.0 V / 1.0 A</strong> through the XT30 female lead, then turn on the board switch.</li>
+                <li>Connect a <strong>3.3 V USB-to-TTL</strong> adapter: board PB6 / USART1_TX → adapter RX, board PB7 / USART1_RX → adapter TX, and GND → GND.</li>
+                <li>Open the serial port at <strong>921600 baud, 8N1</strong>. WUDI firmware sends all sixteen ADS1256 inputs in fixed 72-byte packets.</li>
+              </ol>
+              <p class="safety"><strong>Do not use a 5 V UART signal.</strong> Disconnect ST-Link after flashing unless the shared-ground debug setup has been reviewed.</p>
+            </article>
+          </div>
+
+          <p class="checksum"><strong>BIN SHA-256</strong><code>0ddb9dcba86dc33f97ae636f923d219fb492d62f53ba763dddd8e0c77025e3d9</code></p>
+        </section>
+      </li>
+    </ol>
+  </main>
+
+  <footer>
+    <p id="reference-1"><strong>[1]</strong> Xu, M., Zhang, H., Hou, Y., Xu, Z., Fan, L., Veloso, M., &amp; Song, S. “DexUMI: Using Human Hand as the Universal Manipulation Interface for Dexterous Manipulation.” CoRL 2025.</p>
+    <a href="../">Return to the WUDI project page</a>
+  </footer>
+</body>
+</html>

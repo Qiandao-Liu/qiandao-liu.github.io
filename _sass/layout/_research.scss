@@ -172,6 +172,7 @@ video { object-fit: cover; }
 .research-entry .research-links a:focus-visible { border-color: var(--global-link-color); }
 
 .community-service__media { aspect-ratio: 640 / 354; }
+.community-service-list .research-entry { border-bottom: 0; }
 .community-service-entry--text { grid-template-columns: 1fr; }
 .community-service-entry__inline {
   display: flex;
