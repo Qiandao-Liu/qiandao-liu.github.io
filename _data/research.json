@@ -4,7 +4,7 @@
     "section": "publications",
     "title": "From Hand to Hand: A Shared Wearable Interface and Functional Benchmark for Dexterous Manipulation",
     "url": "https://wudiwudiwudi2026.github.io/",
-    "status": "Under Review",
+    "status": "Dex-CoRL Workshop 2026",
     "authors": "**Qiandao Liu**\\*, Shengmiao Jin\\*, Laura Ren, Tapomayukh Bhattacharjee",
     "summary": "WUDI reuses one wearable sensing system across robot hands; OTHER benchmarks functional dexterity through eight tasks inspired by occupational therapy.",
     "poster": "/images/research/wudi.webp",
