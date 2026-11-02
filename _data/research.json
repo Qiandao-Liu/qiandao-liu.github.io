@@ -105,17 +105,5 @@
     "video_width": 640,
     "video_height": 360,
     "title_url": null
-  },
-  {
-    "id": "pub5",
-    "section": "preparation",
-    "title": "Foundation Model for Everyday Caregiving Task",
-    "status": "In Preparation",
-    "poster": "/images/research/everyday-caregiving.jpg",
-    "preview": "/images/research/everyday-caregiving.mp4",
-    "links": [],
-    "video_width": 640,
-    "video_height": 360,
-    "title_url": null
   }
 ]
