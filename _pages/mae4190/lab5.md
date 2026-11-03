@@ -100,7 +100,7 @@ The firmware maps PID output to PWM with `PWM = 40 + (|output| / 200) * 160`. To
 
 At 40 PWM the robot coasted and usually stopped 50 to 100 mm past the target. At 80 PWM it needed reverse braking and usually stopped cleanly. At 120 PWM, P alone could not brake fast enough and hit the wall every run. The logged P run ended at -104 mm error.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_control.webp' width='700'>
+<img alt="Lab 5: P control" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_control.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -124,7 +124,7 @@ At 40 PWM the robot coasted and usually stopped 50 to 100 mm past the target. At
   </div>
 </div>
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_pwm_comparison.webp' width='700'>
+<img alt="Lab 5: P PWM comparison" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_p_pwm_comparison.webp' width='700'>
 
 ## PD Control
 
@@ -132,7 +132,7 @@ Adding `KD = 0.004` fixed the high speed crashes. The derivative term sees the f
 
 At 120 PWM, PD braked smoothly and stopped within 21 mm of the setpoint. The motor plot shows active reverse braking that P could not produce. PD was already close to PID at all three speeds, so D did most of the useful extra work.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_control.webp' width='700'>
+<img alt="Lab 5: Pd control" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_control.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -156,7 +156,7 @@ At 120 PWM, PD braked smoothly and stopped within 21 mm of the setpoint. The mot
   </div>
 </div>
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_pwm_comparison.webp' width='700'>
+<img alt="Lab 5: Pd PWM comparison" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pd_pwm_comparison.webp' width='700'>
 
 ## PID Control
 
@@ -198,7 +198,7 @@ if (fabsf(output) > 2.0f) {
 
 For robustness, I pushed the robot away from the wall mid-run. PID corrected and returned to 304 mm.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_control.webp' width='700'>
+<img alt="Lab 5: PID control" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_control.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -229,7 +229,7 @@ For robustness, I pushed the robot away from the wall mid-run. PID corrected and
   </div>
 </div>
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_pwm_comparison.webp' width='700'>
+<img alt="Lab 5: PID PWM comparison" loading="lazy" decoding="async" src='/images/mae4190/lab5/lab5_pid_pwm_comparison.webp' width='700'>
 
 | Controller | KP | KI | KD | Final error |
 |---|---|---|---|---|
@@ -241,7 +241,7 @@ For robustness, I pushed the robot away from the wall mid-run. PID corrected and
 
 The TOF sensor gives real data at 10 Hz, but the PID loop runs at 112 Hz. Without extrapolation, the derivative sees stale error for about 90% of the loop. I fixed that by estimating the current distance from the last two real TOF readings.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab5/extrapolation.webp' width='700'>
+<img alt="Lab 5: Extrapolation" loading="lazy" decoding="async" src='/images/mae4190/lab5/extrapolation.webp' width='700'>
 
 Each new TOF sample updates the slope in mm/ms. Between samples, Artemis projects forward with `tof_current = tof_last_val + tof_slope * dt_since`. I also logged an `extrap` flag so the plots can separate real and estimated points. This gives an effective 11.2x loop speed-up, so the derivative gets a fresh estimate every iteration instead of waiting for the next sensor sample.
 
@@ -276,7 +276,7 @@ if (tofSensor1.checkForDataReady()) {
 
 Meet with my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' width='400'>
+<img alt="Lab 5: Mulberry the cat, photo 10" loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' width='400'>
+<img alt="Lab 5: Mulberry the cat, photo 15" loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

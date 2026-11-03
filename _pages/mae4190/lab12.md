@@ -159,11 +159,11 @@ def run_checkpoint_localization(approx_pose, note=''):
 
 <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/first_localization_pos.webp' width='100%'>
+    <img alt="Lab 12: First localization pos" loading="lazy" decoding="async" src='/images/mae4190/lab12/first_localization_pos.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Initial localization at (-4,-3). Prob = 0.9986, estimated heading -10°.</div>
   </div>
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/second_localization_pos.webp' width='100%'>
+    <img alt="Lab 12: Second localization pos" loading="lazy" decoding="async" src='/images/mae4190/lab12/second_localization_pos.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Second localization checkpoint after segment 3. Dropped in final run since wall PID corrects faster.</div>
   </div>
 </div>
@@ -263,7 +263,7 @@ Before testing on hardware I ran the full strategy in simulation to verify the l
     <div style="font-size:0.9em; color:#555;">Simulation run through all 8 segments.</div>
   </div>
   <div style="flex:1; min-width:300px; text-align:center;">
-    <img loading="lazy" decoding="async" src='/images/mae4190/lab12/validation_in_sim_traj.webp' width='100%'>
+    <img alt="Lab 12: Validation in sim traj" loading="lazy" decoding="async" src='/images/mae4190/lab12/validation_in_sim_traj.webp' width='100%'>
     <div style="font-size:0.9em; color:#555;">Simulated GT path vs desired waypoints. Bayes filter localization at segment 3 checkpoint converged at probability 1.0.</div>
   </div>
 </div>
@@ -350,26 +350,26 @@ Waypoints 1 through 3 are hit approximately. The offboard laptop sends heading a
 Meet my cat Mulberry! 🐱
 
 <div>
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat3.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat4.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat5.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat6.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat7.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat8.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat9.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat11.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat12.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat13.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat14.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat16.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat17.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat18.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat19.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
-  <img loading="lazy" decoding="async" src='/images/mulberry/cat20.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 1" loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 2" loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 3" loading="lazy" decoding="async" src='/images/mulberry/cat3.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 4" loading="lazy" decoding="async" src='/images/mulberry/cat4.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 5" loading="lazy" decoding="async" src='/images/mulberry/cat5.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 6" loading="lazy" decoding="async" src='/images/mulberry/cat6.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 7" loading="lazy" decoding="async" src='/images/mulberry/cat7.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 8" loading="lazy" decoding="async" src='/images/mulberry/cat8.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 9" loading="lazy" decoding="async" src='/images/mulberry/cat9.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 10" loading="lazy" decoding="async" src='/images/mulberry/cat10.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 11" loading="lazy" decoding="async" src='/images/mulberry/cat11.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 12" loading="lazy" decoding="async" src='/images/mulberry/cat12.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 13" loading="lazy" decoding="async" src='/images/mulberry/cat13.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 14" loading="lazy" decoding="async" src='/images/mulberry/cat14.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 15" loading="lazy" decoding="async" src='/images/mulberry/cat15.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 16" loading="lazy" decoding="async" src='/images/mulberry/cat16.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 17" loading="lazy" decoding="async" src='/images/mulberry/cat17.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 18" loading="lazy" decoding="async" src='/images/mulberry/cat18.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 19" loading="lazy" decoding="async" src='/images/mulberry/cat19.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
+  <img alt="Lab 12: Mulberry the cat, photo 20" loading="lazy" decoding="async" src='/images/mulberry/cat20.webp' style="max-width:300px; height:auto; margin:4px; display:inline-block; vertical-align:top;">
 </div>
 
 [Back to MAE 4190](/mae4190/)

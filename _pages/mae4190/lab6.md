@@ -107,7 +107,7 @@ At 180° error I wanted near maximum turn speed. Motor PWM is mapped into [110, 
 
 With `KP = 2.5` and a 90° target, the robot reached 90° in about 1.0 s and settled to +0.1° error after overshooting to about 93.7°. The run logged 966 samples over 4.1 s, so the average loop interval was 4.3 ms, or 234 Hz.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_control.webp' width='700'>
+<img alt="Lab 6: P control" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_control.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -124,7 +124,7 @@ I set `KD = 0.05`. My first try used `KD = 0.4`, but at 300 °/s the D term alon
 
 I tested `target = -180°` to check wrap-around. The robot chose the left turn, crossed -180° and +180° cleanly, and stopped at 179.9° with +0.1° final error. The 982-sample run averaged 4.8 ms, or 208 Hz.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pd_control.webp' width='700'>
+<img alt="Lab 6: Pd control" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pd_control.webp' width='700'>
 
 <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start;">
   <div style="width:49%; text-align:center;">
@@ -137,7 +137,7 @@ I tested `target = -180°` to check wrap-around. The robot chose the left turn, 
   </div>
 </div>
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_vs_pd.webp' width='700'>
+<img alt="Lab 6: P vs pd" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_p_vs_pd.webp' width='700'>
 
 ## Derivative Kick and Lowpass Filter
 
@@ -151,7 +151,7 @@ With `alpha = 1.0`, the spike passes through. With `alpha = 0.002`, the derivati
 
 I ran the same sequence twice: hold 90° for 3 s, then switch to -90°. Without the filter, motor PWM spiked to ±200 at the switch. With `alpha = 0.002`, the transition stayed smooth.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_derivative_kick.webp' width='700'>
+<img alt="Lab 6: Derivative kick" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_derivative_kick.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -183,7 +183,7 @@ The integral term removes steady state error from friction. If the robot stops s
 
 The 90° PID run ended at -1.0° error, compared with +0.1° for P only. The extra 1° overshoot means the integrator was still accumulating when the robot stopped, so a tighter wind-up clamp would help. The run averaged 4.7 ms, or 213 Hz, over 1015 samples.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control.webp' width='700'>
+<img alt="Lab 6: PID control" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -233,7 +233,7 @@ if (fabsf(output) > 2.0f) {
 
 The three-way comparison shows P and PD settle similarly fast, while PID removes the residual offset from surface friction.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_comparison.webp' width='700'>
+<img alt="Lab 6: PID comparison" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_comparison.webp' width='700'>
 
 | Controller | KP  | KI   | KD   | Final error | Avg loop |
 |---|---|---|---|---|---|
@@ -260,7 +260,7 @@ To verify live setpoint updates, I started at 90°, let the robot settle, then s
 
 The same structure extends to driving by adding the orientation PID output as a signed steering correction on top of a forward or backward base motor command.
 
-<img loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control_with_setpoint_change.webp' width='700'>
+<img alt="Lab 6: PID control with setpoint change" loading="lazy" decoding="async" src='/images/mae4190/lab6/lab6_pid_control_with_setpoint_change.webp' width='700'>
 
 <div style="width:100%; max-width:700px;">
   <video preload="none" width='700' controls>
@@ -296,7 +296,7 @@ The setpoint is global, so a BLE write takes effect on the next cycle. No synchr
 
 Meet with my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' width='400'>
-<img loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' width='400'>
+<img alt="Lab 6: Mulberry the cat, photo 1" loading="lazy" decoding="async" src='/images/mulberry/cat1.webp' width='400'>
+<img alt="Lab 6: Mulberry the cat, photo 2" loading="lazy" decoding="async" src='/images/mulberry/cat2.webp' width='400'>
 
 [Back to MAE 4190](/mae4190/)

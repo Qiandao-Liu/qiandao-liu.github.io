@@ -179,12 +179,12 @@ The first run with the new direct-turn logic fixed the old forward and backward 
   <div style="text-align:center; font-size:0.95em;">Direct-turn logic without the tire modification. The robot turns the right amount, but the high friction causes a visible pause.</div>
 </div>
 
-<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift.webp" width="700">
+<img alt="Lab 8: Drift" loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the first direct-turn run.</div>
 
 To reduce that sticking effect, I wrapped electrical tape around the outer surface of the tires. That lowered the tire-floor friction enough to make the turn much smoother.
 
-<img loading="lazy" decoding="async" src="/images/mae4190/lab8/IMG_3125.webp" width="700">
+<img alt="Lab 8: Experiment image 3125" loading="lazy" decoding="async" src="/images/mae4190/lab8/IMG_3125.webp" width="700">
 
 <div style="text-align:center; font-size:0.95em;">Electrical tape added around the tire surface to reduce turning friction.</div>
 
@@ -207,15 +207,15 @@ The tradeoff is that the lower friction causes some chassis drift during braking
   </div>
 </div>
 
-<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_1.webp" width="700">
+<img alt="Lab 8: Drift 1" loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_1.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the first taped-tire run.</div>
 
-<img loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_2.webp" width="700">
+<img alt="Lab 8: Drift 2" loading="lazy" decoding="async" src="/images/mae4190/lab8/lab8_drift_2.webp" width="700">
 <div style="text-align:center; font-size:0.95em;">Sensor and control plot for the fastest taped-tire run.</div>
 
 Meet my cat Mulberry! 🐱
 
-<img loading="lazy" decoding="async" src="/images/mulberry/cat19.webp" width="400">
-<img loading="lazy" decoding="async" src="/images/mulberry/cat20.webp" width="400">
+<img alt="Lab 8: Mulberry the cat, photo 19" loading="lazy" decoding="async" src="/images/mulberry/cat19.webp" width="400">
+<img alt="Lab 8: Mulberry the cat, photo 20" loading="lazy" decoding="async" src="/images/mulberry/cat20.webp" width="400">
 
 [Back to MAE 4190](/mae4190/)
