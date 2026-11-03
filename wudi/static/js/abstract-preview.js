@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const figureHeight = figure.getBoundingClientRect().height;
     const abstractOffset = abstract.getBoundingClientRect().top - copy.getBoundingClientRect().top;
     const available = figureHeight - abstractOffset - toggle.getBoundingClientRect().height - 2;
-    const previewHeight = Math.max(80, Math.min(132, available));
+    const previewHeight = Math.max(80, available);
     abstract.style.setProperty('--abstract-preview-height', `${previewHeight}px`);
   };
 
