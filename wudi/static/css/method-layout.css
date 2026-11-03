@@ -107,6 +107,10 @@
   transition: color 160ms ease, opacity 160ms ease;
 }
 
+.abstract-details:not([data-expanded="true"]) .abstract-toggle {
+  transform: translateY(-0.3rem);
+}
+
 .abstract-toggle::after {
   content: "↓";
   font-size: 0.95em;
