@@ -1,3 +1,24 @@
+/* Public-page title treatment after removing the full-screen video hero. */
+.publication-title-row {
+  display: flex;
+  max-width: 1120px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin: 0 auto 1.6rem;
+}
+
+.publication-title-row .publication-title {
+  max-width: 940px;
+  margin: 0;
+}
+
+.publication-title-logo {
+  width: clamp(5.5rem, 8vw, 7.5rem);
+  height: auto;
+  flex: 0 0 auto;
+}
+
 /* Compact Method Overview: figure left, video and abstract right. */
 .method-layout {
   grid-template-columns: minmax(0, 1.55fr) minmax(340px, 0.75fr);
@@ -110,6 +131,15 @@
 }
 
 @media (max-width: 900px) {
+  .publication-title-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .publication-title-logo {
+    width: clamp(4.75rem, 20vw, 6.5rem);
+  }
+
   .method-layout {
     grid-template-columns: minmax(0, 1fr);
   }

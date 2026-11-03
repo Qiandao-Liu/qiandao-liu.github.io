@@ -1,21 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const bgVideo = document.getElementById('bg-video');
-  if (bgVideo) {
-    const playHero = () => {
-      bgVideo.play().catch(() => {});
-    };
-    playHero();
-    bgVideo.addEventListener('loadeddata', playHero);
-    bgVideo.addEventListener('canplay', playHero);
-  }
-
-  document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
-    const target = document.querySelector('.page-content');
-    if (!target) return;
-    const top = Math.ceil(target.getBoundingClientRect().top + window.scrollY + 15);
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
-
   const autoplayVideos = Array.from(document.querySelectorAll('video[data-autoplay]'));
   const startVideo = (video) => {
     if (video.closest('[hidden]')) return;
