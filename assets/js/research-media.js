@@ -60,6 +60,7 @@ publicationAuthorLists.forEach(list => {
   list.dataset.fullAuthors = list.innerHTML;
   list.dataset.fullAuthorsText = list.textContent.trim();
 });
+const expandedAuthorLists = new WeakSet();
 
 const fitsOnOneLine = element => {
   const lineHeight = Number.parseFloat(getComputedStyle(element).lineHeight);
@@ -72,11 +73,15 @@ const foldPublicationAuthors = () => {
     list.classList.remove('research-entry__authors--folded');
     list.removeAttribute('aria-label');
     list.removeAttribute('title');
+    if (expandedAuthorLists.has(list)) {
+      list.classList.add('research-entry__authors--expanded');
+      return;
+    }
     if (fitsOnOneLine(list)) return;
 
     const authors = list.dataset.fullAuthors.split(/,\s+/);
     for (let visibleAuthors = authors.length - 1; visibleAuthors >= 1; visibleAuthors -= 1) {
-      list.innerHTML = `${authors.slice(0, visibleAuthors).join(', ')}, <span class="research-entry__et-al">et al.</span>`;
+      list.innerHTML = `${authors.slice(0, visibleAuthors).join(', ')}, <button type="button" class="research-entry__et-al" aria-label="Show the full author list">et al.</button>`;
       if (fitsOnOneLine(list) || visibleAuthors === 1) break;
     }
     list.classList.add('research-entry__authors--folded');
@@ -93,3 +98,15 @@ const scheduleAuthorFold = () => {
 foldPublicationAuthors();
 window.addEventListener('resize', scheduleAuthorFold);
 if (document.fonts) document.fonts.ready.then(scheduleAuthorFold);
+
+document.addEventListener('click', event => {
+  const expandButton = event.target.closest('.research-entry__et-al');
+  if (!expandButton) return;
+  const list = expandButton.closest('.research-entry__authors p');
+  expandedAuthorLists.add(list);
+  list.innerHTML = list.dataset.fullAuthors;
+  list.classList.remove('research-entry__authors--folded');
+  list.classList.add('research-entry__authors--expanded');
+  list.removeAttribute('aria-label');
+  list.removeAttribute('title');
+});

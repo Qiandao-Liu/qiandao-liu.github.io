@@ -32,6 +32,21 @@
   line-height: 1.6;
 }
 .research-entry__authors p { margin-bottom: 0.5em; }
+.research-entry__et-al {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 0.15em;
+}
+.research-entry__et-al:hover,
+.research-entry__et-al:focus-visible { color: var(--global-link-color); }
 .page__content .research-entry__venue {
   margin: 0 0 0.5em;
   font-size: 0.8em;
