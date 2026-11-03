@@ -1431,13 +1431,59 @@ body {
 }
 
 .publication-meta {
+  width: 100%;
   margin-top: 0;
+}
+
+.publication-title-row {
+  display: flex;
+  max-width: 1080px;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  margin: 0 auto clamp(2rem, 3vw, 2.75rem);
+  padding: clamp(0.75rem, 1.5vw, 1.25rem) 0;
+}
+
+.publication-title-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(9rem, 15vw, 11rem);
+  height: clamp(5.8rem, 9.7vw, 7.15rem);
+  object-fit: cover;
+  object-position: center 53%;
+}
+
+.publication-title-row .publication-title {
+  flex: 1 1 0;
+  max-width: 860px;
+  margin: 0;
+  text-align: left;
 }
 
 .publication-title {
   max-width: 1080px;
   margin: 0 auto 1.6rem;
   line-height: 1.18;
+}
+
+@media screen and (max-width: 840px) {
+  .publication-title-row {
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0 0;
+  }
+
+  .publication-title-logo {
+    width: clamp(8.5rem, 38vw, 10rem);
+    height: clamp(5.5rem, 24.5vw, 6.5rem);
+  }
+
+  .publication-title-row .publication-title {
+    flex: none;
+    text-align: center;
+  }
 }
 
 .publication-authors {
