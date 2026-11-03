@@ -13,6 +13,14 @@ Examples:
 - `Robotics: Science and Systems (RSS) 2026`
 - `Dex-CoRL Workshop 2026`
 
+## Publication author links
+
+- Link every publication author name when a reliable, identity-matched profile is available.
+- Use this priority order: personal or academic homepage, official institutional profile, GitHub profile, then LinkedIn or another professional profile.
+- Verify the person's identity using the publication, project, affiliation, or another authoritative source before adding a link.
+- Keep an author name as plain text when no reliable match is available; do not guess based on name alone.
+- Preserve existing author emphasis inside the link, including bold styling for Qiandao Liu.
+
 ## Community service
 
 - Group all conference and workshop reviewing into one line: `Reviewer: VENUE YY, VENUE YY`.
