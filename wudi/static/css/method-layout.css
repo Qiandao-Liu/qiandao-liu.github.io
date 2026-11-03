@@ -69,6 +69,10 @@
   line-height: 1.5;
 }
 
+.abstract-details:not([data-expanded="true"]) .content {
+  height: var(--abstract-preview-height, 10rem);
+}
+
 .abstract-details:not([data-expanded="true"]) .content::after {
   position: absolute;
   right: 0;
