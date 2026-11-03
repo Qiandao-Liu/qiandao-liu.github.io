@@ -99,7 +99,9 @@
       "@type": "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
       "@id": {{ seo_url | append: "/#person" | jsonify }},
       "name": {{ site.social.name | default: site.name | jsonify }},
+      {% if site.social.alternate_name %}
       "alternateName": {{ site.social.alternate_name | jsonify }},
+      {% endif %}
       "url": {{ seo_url | jsonify }},
       "image": {{ site.author.avatar | prepend: "/images/" | prepend: seo_url | jsonify }},
       "description": {{ site.description | jsonify }},

@@ -139,7 +139,6 @@ og_description           :  # Social media default site image description
 social:
   type                   : Person
   name                   : "Qiandao Liu"
-  alternate_name         : "刘乾道"
   affiliation            : "Cornell University"
   affiliation_url        : "https://www.cornell.edu/"
   knows_about:
