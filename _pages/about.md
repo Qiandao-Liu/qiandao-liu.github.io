@@ -7,6 +7,7 @@ author_profile: true
 redirect_from:
   - /about/
   - /about.html
+  - /publications/
 ---
 
 Email: ql342 [at] cornell [dot] edu

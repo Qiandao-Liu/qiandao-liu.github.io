@@ -13,9 +13,8 @@ A curated guide to the public pages on this site. Search engines can use the [XM
 ## Primary Pages
 
 - [Home]({{ base_path }}/)
-- [Publications]({{ base_path }}/publications/)
 - [Projects]({{ base_path }}/portfolio/)
-- [Teaching]({{ base_path }}/teaching/)
+- [Coursework]({{ base_path }}/teaching/)
 - [Misc]({{ base_path }}/misc/)
 
 ## Research
