@@ -26,6 +26,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/abstract-preview.js"></script>
   <script src="./static/js/parts-explorer-data.js"></script>
   <script src="./static/js/parts-explorer.js"></script>
   <script type="importmap">
@@ -263,9 +264,8 @@
             <source src="./static/videos/web/intro.mp4" type="video/mp4">
           </video>
           <p class="video-sound-note"><span aria-hidden="true">🔊</span> This video includes audio.</p>
-          <details class="abstract-details">
-            <summary>Read the abstract</summary>
-            <div class="content">
+          <div class="abstract-details" data-abstract-preview>
+            <div class="content" id="method-abstract">
               <p>
                 Collecting demonstrations for dexterous manipulation is difficult to scale across robot hands with
                 different kinematics and contact geometry. Existing interfaces often require embodiment-specific sensing
@@ -282,7 +282,8 @@
                 completions per collection window than a vision-based teleoperation baseline.
               </p>
             </div>
-          </details>
+            <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="method-abstract">Extend</button>
+          </div>
         </div>
       </div>
     </div>
