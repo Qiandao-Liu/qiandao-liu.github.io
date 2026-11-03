@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Qiandao Liu"
 title_separator          : "-"
 name                     : &name "Qiandao Liu"
-description              : &description "Qiandao Liu's academic portfolio"
+description              : &description "Qiandao Liu is a computer science student at Cornell University conducting research in robotics, robot learning, dexterous manipulation, and assistive robotics."
 url                      : https://Qiandao-Liu.github.io
 baseurl                  : ""
 repository               : "Qiandao-Liu/Qiandao-Liu.github.io"
@@ -147,9 +147,19 @@ og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : "Qiandao Liu"
+  alternate_name         : "刘乾道"
+  affiliation            : "Cornell University"
+  affiliation_url        : "https://www.cornell.edu/"
+  knows_about:
+    - Robotics
+    - Robot learning
+    - Dexterous manipulation
+    - Assistive robotics
+  links:
+    - "https://github.com/Qiandao-Liu"
+    - "https://www.linkedin.com/in/qiandao-liu-11a3682b3/"
 
 
 # Analytics

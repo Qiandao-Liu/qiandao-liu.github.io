@@ -6,12 +6,18 @@
 {% endif %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
-{% if page.title %}
+{% if page.url == "/" %}
+  {% capture seo_title %}Qiandao Liu | Robotics & Robot Learning{% endcapture %}
+{% elsif page.title %}
   {% assign seo_title = page.title | append: " " | append: site.title_separator | append: " " | append: site.title %}
 {% endif %}
 
 {% if seo_title %}
-  {% assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once %}
+  {% if page.url == "/" %}
+    {% assign seo_title = seo_title | strip_newlines | escape_once %}
+  {% else %}
+    {% assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once %}
+  {% endif %}
 {% endif %}
 
 {% if site.url %}
@@ -89,11 +95,21 @@
 {% if site.social %}
   <script type="application/ld+json">
     {
-      "@context" : "http://schema.org",
-      "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
-      "name" : "{{ site.social.name | default: site.name }}",
-      "url" : {{ seo_url | jsonify }},
-      "sameAs" : {{ site.social.links | jsonify }}
+      "@context": "https://schema.org",
+      "@type": "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
+      "@id": {{ seo_url | append: "/#person" | jsonify }},
+      "name": {{ site.social.name | default: site.name | jsonify }},
+      "alternateName": {{ site.social.alternate_name | jsonify }},
+      "url": {{ seo_url | jsonify }},
+      "image": {{ site.author.avatar | prepend: "/images/" | prepend: seo_url | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": {{ site.social.affiliation | jsonify }},
+        "url": {{ site.social.affiliation_url | jsonify }}
+      },
+      "knowsAbout": {{ site.social.knows_about | jsonify }},
+      "sameAs": {{ site.social.links | jsonify }}
     }
   </script>
 {% endif %}
