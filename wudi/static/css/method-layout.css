@@ -13,12 +13,6 @@
   margin: 0;
 }
 
-.publication-title-logo {
-  width: clamp(5.5rem, 8vw, 7.5rem);
-  height: auto;
-  flex: 0 0 auto;
-}
-
 /* Compact Method Overview: figure left, video and abstract right. */
 .method-layout {
   grid-template-columns: minmax(0, 1.55fr) minmax(340px, 0.75fr);
@@ -131,10 +125,6 @@
   .publication-title-row {
     flex-direction: column;
     gap: 0.7rem;
-  }
-
-  .publication-title-logo {
-    width: clamp(4.75rem, 20vw, 6.5rem);
   }
 
   .method-layout {
