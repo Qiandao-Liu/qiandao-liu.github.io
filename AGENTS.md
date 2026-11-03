@@ -20,6 +20,8 @@ Examples:
 - Verify the person's identity using the publication, project, affiliation, or another authoritative source before adding a link.
 - Keep an author name as plain text when no reliable match is available; do not guess based on name alone.
 - Preserve existing author emphasis inside the link, including bold styling for Qiandao Liu.
+- On the homepage Publications list, keep an author list on one visual line; if the full list would wrap, truncate it to the longest one-line prefix followed by `et al.`.
+- Apply this folding only to homepage Publications, not In Preparation entries or project and publication detail pages.
 
 ## Community service
 

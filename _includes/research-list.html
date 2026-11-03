@@ -1,4 +1,4 @@
-<div class="research-list">
+<div class="research-list research-list--{{ include.section }}">
   {% assign research_entries = site.data.research | where: "section", include.section %}
   {% for publication in research_entries %}
   <article class="research-entry" id="{{ publication.id }}">

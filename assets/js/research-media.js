@@ -50,3 +50,46 @@ document.addEventListener('visibilitychange', () => {
     else if (visible.has(video)) play(video);
   });
 });
+
+// Keep homepage publication author lists to one line, using the longest prefix
+// that still leaves room for "et al." when the full list would wrap.
+const publicationAuthorLists = [...document.querySelectorAll(
+  '.home-page .research-list--publications .research-entry__authors p'
+)];
+publicationAuthorLists.forEach(list => {
+  list.dataset.fullAuthors = list.innerHTML;
+  list.dataset.fullAuthorsText = list.textContent.trim();
+});
+
+const fitsOnOneLine = element => {
+  const lineHeight = Number.parseFloat(getComputedStyle(element).lineHeight);
+  return element.getBoundingClientRect().height <= lineHeight * 1.25;
+};
+
+const foldPublicationAuthors = () => {
+  publicationAuthorLists.forEach(list => {
+    list.innerHTML = list.dataset.fullAuthors;
+    list.classList.remove('research-entry__authors--folded');
+    list.removeAttribute('aria-label');
+    list.removeAttribute('title');
+    if (fitsOnOneLine(list)) return;
+
+    const authors = list.dataset.fullAuthors.split(/,\s+/);
+    for (let visibleAuthors = authors.length - 1; visibleAuthors >= 1; visibleAuthors -= 1) {
+      list.innerHTML = `${authors.slice(0, visibleAuthors).join(', ')}, <span class="research-entry__et-al">et al.</span>`;
+      if (fitsOnOneLine(list) || visibleAuthors === 1) break;
+    }
+    list.classList.add('research-entry__authors--folded');
+    list.setAttribute('aria-label', list.dataset.fullAuthorsText);
+    list.setAttribute('title', list.dataset.fullAuthorsText);
+  });
+};
+
+let authorFoldFrame;
+const scheduleAuthorFold = () => {
+  cancelAnimationFrame(authorFoldFrame);
+  authorFoldFrame = requestAnimationFrame(foldPublicationAuthors);
+};
+foldPublicationAuthors();
+window.addEventListener('resize', scheduleAuthorFold);
+if (document.fonts) document.fonts.ready.then(scheduleAuthorFold);
