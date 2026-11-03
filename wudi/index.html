@@ -19,6 +19,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/method-layout.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -244,16 +245,9 @@
     </div>
   </section>
 
-  <!-- Video first, then title, then figure + abstract. -->
+  <!-- Method figure beside the overview video and collapsed abstract. -->
   <section class="section" id="method">
     <div class="container site-container">
-      <div class="method-video">
-        <video controls preload="metadata" playsinline poster="./static/images/hero-poster.webp">
-          <source src="./static/videos/web/intro.mp4" type="video/mp4">
-        </video>
-        <p class="video-sound-note"><span aria-hidden="true">🔊</span> This video includes audio.</p>
-      </div>
-
       <div class="section-heading">
         <h2 class="title is-3">Method Overview</h2>
       </div>
@@ -265,9 +259,13 @@
           <figcaption>Shared sensing across WUJI Hand v1 and LEAP Hand, from collection to autonomous execution.</figcaption>
         </figure>
         <div class="method-copy">
-          <div class="abstract-details">
+          <video controls preload="metadata" playsinline poster="./static/images/hero-poster.webp">
+            <source src="./static/videos/web/intro.mp4" type="video/mp4">
+          </video>
+          <p class="video-sound-note"><span aria-hidden="true">🔊</span> This video includes audio.</p>
+          <details class="abstract-details">
+            <summary>Read the abstract</summary>
             <div class="content">
-              <h3>Abstract</h3>
               <p>
                 Collecting demonstrations for dexterous manipulation is difficult to scale across robot hands with
                 different kinematics and contact geometry. Existing interfaces often require embodiment-specific sensing
@@ -284,7 +282,7 @@
                 completions per collection window than a vision-based teleoperation baseline.
               </p>
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </div>

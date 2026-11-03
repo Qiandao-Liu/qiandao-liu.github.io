@@ -1,0 +1,59 @@
+/* Compact Method Overview: figure left, video and abstract right. */
+.method-layout {
+  grid-template-columns: minmax(0, 1.55fr) minmax(340px, 0.75fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.method-copy {
+  display: block;
+}
+
+.method-copy video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  border-radius: 12px;
+}
+
+.method-copy > .video-sound-note {
+  margin-top: 0.4rem;
+  color: #596579;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.abstract-details {
+  display: block;
+  width: auto;
+  margin-top: 0.65rem;
+  padding: 0;
+  border-top: 1px solid var(--site-line);
+  border-bottom: 1px solid var(--site-line);
+  background: transparent;
+}
+
+.abstract-details summary {
+  padding: 0.7rem 0;
+  color: var(--site-blue);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.abstract-details .content {
+  margin: 0;
+  padding: 0 0 0.8rem;
+  color: #4f596b;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .method-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
