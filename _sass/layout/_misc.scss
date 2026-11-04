@@ -84,6 +84,28 @@
   border: 0;
 }
 
+.mulberry-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.15rem auto 0;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 999px;
+  background: var(--global-bg-color);
+  color: var(--global-text-color);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.mulberry-sound-toggle:hover,
+.mulberry-sound-toggle:focus-visible {
+  border-color: var(--global-link-color);
+  color: var(--global-link-color);
+}
+
 .mulberry-video figcaption {
   margin-top: 0.45rem;
   color: var(--global-fig-caption-color);
