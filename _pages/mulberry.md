@@ -10,14 +10,11 @@ mermaid: false
 <div class="mulberry-page-content">
 <figure class="mulberry-video">
   <div class="mulberry-video__frame">
-    <video id="mulberry-video" controls playsinline preload="metadata" data-manual-video data-audio-video aria-label="Video of Mulberry with sound">
+    <video controls playsinline preload="metadata" data-manual-video aria-label="Video of Mulberry">
       <source src="{{ '/images/mulberry/mulberry.mp4' | relative_url }}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
-  <button type="button" class="mulberry-sound-toggle" data-audio-control="mulberry-video" aria-controls="mulberry-video">
-    <span aria-hidden="true">🔊</span> Play with sound
-  </button>
   <figcaption>This content may be disturbing. Viewer discretion is advised.</figcaption>
 </figure>
 

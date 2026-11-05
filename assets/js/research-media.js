@@ -51,57 +51,6 @@ document.addEventListener('visibilitychange', () => {
   });
 });
 
-// Manual videos with an audio track should start audibly after a visitor action.
-// Some browsers restore a previously muted media state even when the HTML does
-// not include `muted`, so provide an explicit, accessible sound control as well.
-const audioVideos = [...document.querySelectorAll('video[data-audio-video]')];
-audioVideos.forEach(video => {
-  const button = document.querySelector(`[data-audio-control="${video.id}"]`);
-  if (!button) return;
-
-  video.defaultMuted = false;
-  let restoredOnFirstPlay = false;
-
-  const isAudible = () => !video.muted && video.volume > 0;
-  const updateButton = () => {
-    const audible = isAudible();
-    button.setAttribute('aria-pressed', String(audible));
-    button.innerHTML = audible && !video.paused
-      ? '<span aria-hidden="true">🔇</span> Mute'
-      : '<span aria-hidden="true">🔊</span> Play with sound';
-  };
-
-  const restoreSound = () => {
-    video.muted = false;
-    if (video.volume === 0) video.volume = 1;
-  };
-
-  video.addEventListener('play', () => {
-    if (!restoredOnFirstPlay) {
-      restoredOnFirstPlay = true;
-      restoreSound();
-    }
-    updateButton();
-  });
-  video.addEventListener('pause', updateButton);
-  video.addEventListener('volumechange', updateButton);
-
-  button.addEventListener('click', () => {
-    if (!video.paused && isAudible()) {
-      video.muted = true;
-      updateButton();
-      return;
-    }
-
-    restoredOnFirstPlay = true;
-    restoreSound();
-    video.play().catch(() => {});
-    updateButton();
-  });
-
-  updateButton();
-});
-
 // Keep homepage publication author lists to one line, using the longest prefix
 // that still leaves room for "et al." when the full list would wrap.
 const publicationAuthorLists = [...document.querySelectorAll(
