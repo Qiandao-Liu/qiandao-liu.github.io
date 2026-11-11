@@ -5,6 +5,7 @@ layout: research-project
 title: "Long-horizon Dressing with T-shirts"
 permalink: /projects/assistive-dressing/
 research_id: pub2
+hide_status: true
 ---
 
 <figure class="research-project__video" id="video">

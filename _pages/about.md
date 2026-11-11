@@ -21,10 +21,6 @@ My research lies at the intersection of robotics, learning, and control. I focus
 
 {% include research-list.html section="publications" %}
 
-## In Preparation
-
-{% include research-list.html section="preparation" %}
-
 ## Community Service
 
 {% include community-service.html %}

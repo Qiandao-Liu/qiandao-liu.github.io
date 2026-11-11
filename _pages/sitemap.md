@@ -13,15 +13,13 @@ A curated guide to the public pages on this site. Search engines can use the [XM
 ## Primary Pages
 
 - [Home]({{ base_path }}/)
-- [Projects]({{ base_path }}/portfolio/)
 - [Coursework]({{ base_path }}/teaching/)
 - [Misc]({{ base_path }}/misc/)
 
 ## Research
 
-- [From Hand to Hand: WUDI and OTHER]({{ base_path }}/wudi/)
+- [From Hand to Hand: WUDI and OTHER](https://emprise.cs.cornell.edu/wudi/)
 - [Real-to-sim-to-real for robot learning]({{ base_path }}/projects/rby1-real2sim2real/)
-- [Long-horizon robot-assisted dressing]({{ base_path }}/projects/assistive-dressing/)
 
 ## Course Projects
 

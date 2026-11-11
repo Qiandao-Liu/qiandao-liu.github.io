@@ -4,8 +4,5 @@
 # portal: true = triggers wind-sweep transition
 
 main:
-  - title: "Projects"
-    url: /portfolio/
-    academic: true
   - title: "Misc"
     url: /misc/
