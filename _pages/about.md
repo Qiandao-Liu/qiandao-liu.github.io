@@ -12,7 +12,13 @@ redirect_from:
 
 Email: ql342 [at] cornell [dot] edu
 
-I am Qiandao Liu, a senior undergraduate studying Computer Science at [Cornell University](https://www.cornell.edu/). I have worked with Professor [Tapomayukh Bhattacharjee](https://sites.google.com/site/tapomayukh) on robotic assistive caregiving. I also interned at [SceniX](https://scenix.ai/) ([World Labs](https://www.worldlabs.ai/)), working with [Yunzhu Li](https://yunzhuli.github.io/) on Real2Sim2Real for robot learning.
+I earned my bachelor's degree in Computer Science with honors from Cornell University, with a minor in Robotics.
+{: .intro}
+
+I spent my senior year visiting at UC Berkeley, where I worked with Professor [Koushil Sreenath](https://hybrid-robotics.berkeley.edu/koushil/).
+{: .intro}
+
+Previously, I worked with Professor [Tapomayukh Bhattacharjee](https://sites.google.com/site/tapomayukh) at Cornell on robotic assistive caregiving. I also interned at [SceniX](https://scenix.ai/) ([World Labs](https://www.worldlabs.ai/)), working with [Yunzhu Li](https://yunzhuli.github.io/) on Real2Sim2Real for robot learning.
 {: .intro}
 
 My research lies at the intersection of robotics, learning, and control. I focus on enabling robots to perform useful tasks by combining novel hardware design with learning-based methods that scale with data.

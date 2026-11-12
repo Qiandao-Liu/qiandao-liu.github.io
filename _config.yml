@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Qiandao Liu"
 title_separator          : "-"
 name                     : &name "Qiandao Liu"
-description              : &description "Qiandao Liu is a computer science student at Cornell University conducting research in robotics, robot learning, dexterous manipulation, and assistive robotics."
+description              : &description "Qiandao Liu earned a bachelor's degree in Computer Science with honors from Cornell University and conducts research in robotics, learning, and control."
 url                      : https://Qiandao-Liu.github.io
 baseurl                  : ""
 repository               : "Qiandao-Liu/Qiandao-Liu.github.io"
